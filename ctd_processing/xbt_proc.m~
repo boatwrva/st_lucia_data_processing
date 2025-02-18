@@ -1,0 +1,70 @@
+close all; clear all
+datadir = ['../../current_cruise/XBT/'];
+fname = 'test.EDF';
+
+drop_numbers = [4:5 7 9:34];
+X.depth = NaN(3000,length(drop_numbers));
+X.temp = NaN(3000,length(drop_numbers));
+X.sound = NaN(3000,length(drop_numbers));
+en = 1643;
+for a = 1:length(drop_numbers)
+  this_cast = drop_numbers(a);
+  tmpfile = num2str(100000+this_cast);
+  X.filename{a} = ['TF_' tmpfile(2:end) '.EDF'];
+  fid = fopen([datadir X.filename{a}]);
+  for b = 1:25
+    tmp{b} = fgetl(fid);
+  end
+  tmp = char(tmp);
+  tmpdat = dlmread([datadir X.filename{a}],'',33,0);
+  X.depth(1:length(tmpdat(:,1)),a) = tmpdat(:,1); 
+  X.temp(1:length(tmpdat(:,2)),a) = tmpdat(:,2); 
+  X.sound(1:length(tmpdat(:,3)),a) = tmpdat(:,3);
+  X.wypt{a} = tmp(12,:);
+  jn = tmp(6,:);
+  X.lat(a) =  eval(jn(18:20)) + eval(jn(21:27))/60;
+  jn = tmp(7,:);
+  X.lon(a) = eval(jn(18:21)) + eval(jn(22:27))/60;
+  jn1 = tmp(3,:);
+  jn2 = tmp(4,:);
+  X.datenum(a) = datenum(eval(jn1(24:27)),eval(jn1(18:19)),eval(jn1(21:22)),eval(jn2(18:19)),eval(jn2(21:22)),eval(jn2(24:25)));
+  clear tmp
+end
+% sort into each waypoint
+NSW.depth = X.depth(:,1:3:end);
+NSW.temp = X.temp(:,1:3:end);
+NSW.sound = X.sound(:,1:3:end);
+NSW.datenum = X.datenum(1:3:end);
+NSW.wypt = X.wypt(1:3:end);
+NSW.lat = X.lat(1:3:end);
+NSW.lon = X.lon(1:3:end);
+contourf(NSW.datenum,NSW.depth(:,7),NSW.temp,30); axis ij; shading flat
+datetick('x','HH:MM')
+xlim([min(NSW.datenum) max(NSW.datenum)])
+
+
+X1.depth = X.depth(:,2:3:end);
+X1.temp = X.temp(:,2:3:end);
+X1.sound = X.sound(:,2:3:end);
+X1.datenum = X.datenum(2:3:end);
+X1.wypt = X.wypt(2:3:end);
+X1.lat = X.lat(2:3:end);
+X1.lon = X.lon(2:3:end);
+figure
+contourf(X1.datenum,X1.depth(:,7),X1.temp,30); axis ij; shading flat
+datetick('x','HH:MM')
+xlim([min(X1.datenum) max(X1.datenum)])
+
+NSE.depth = X.depth(:,3:3:end);
+NSE.temp = X.temp(:,3:3:end);
+NSE.sound = X.sound(:,3:3:end);
+NSE.datenum = X.datenum(3:3:end);
+NSE.wypt = X.wypt(3:3:end);
+NSE.lat = X.lat(3:3:end);
+NSE.lon = X.lon(3:3:end);
+figure
+contourf(NSE.datenum,NSE.depth(:,7),NSE.temp,30); axis ij; shading flat
+datetick('x','HH:MM')
+xlim([min(NSE.datenum) max(NSE.datenum)])
+
+save('../xbt/processed/current.mat','NSW','X1','NSE')

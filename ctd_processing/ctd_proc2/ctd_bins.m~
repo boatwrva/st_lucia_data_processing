@@ -1,0 +1,54 @@
+
+cruise = 'hippo';
+icast = 14;
+
+datadir = ['/Users/shaunj/IndianOcean/data/'];
+ctddir = [datadir 'ctd/'];
+ctdlist = dirs(fullfile(ctddir, '*.hex'), 'fullfile', 1);
+ctdname = ctdlist(icast).name;
+disp(['file: ' ctdname])
+
+% 24 Hz data 
+disp('loading:')
+d = hex_read(ctdname);
+n = length(d{1});
+
+disp('parsing:')
+% ch0 ch2 ch4 ***
+data = hex_parse(d);
+
+% check for modcount errors
+dmc = diff(data.modcount);
+mmc = mod(dmc, 256);
+figure(1); plot(mmc); title('mod diff modcount')
+fmc = find(mmc - 1);
+if ~isempty(fmc)
+  disp('Warning: bad modcount')
+end
+
+% convert freq data
+disp('converting:')
+cfgload
+data = physicalunits(data, cfg);
+
+disp('cleaning:')
+data = ctd_cleanup(data);
+
+disp('correcting:')
+% ***include trans, fl, time
+data = ctd_correction(data); % T lag, tau; lowpass T, C, oxygen
+
+disp('calculating:')
+% ***2-5 s lag on oxygen
+data = swcalcs(data, cfg); % calc S, theta, sigma, oxygen, depth
+
+disp('removing loops:')
+data1 = ctd_rmdepthloops(data);
+
+disp('binning:')
+dz = 1; % m
+zmin = 10;
+[zmax, imax] = max(data1.depth);
+zmax = ceil(zmax);
+zbin = [zmin:dz:zmax]';
+[dbin, ubin, ndbin, nubin] = ctd_binning(data.depth, data.t1, zmin, dz, zmax);

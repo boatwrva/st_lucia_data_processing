@@ -1,0 +1,28 @@
+* Sea-Bird SBE 9 Data File:
+* FileName = C:\CTD\SP2404\SP2404_Decktest.hdr
+* Software Version Seasave V 7.26.7.107
+* Temperature SN = 6141
+* Conductivity SN = 1879
+* Number of Bytes Per Scan = 37
+* Number of Voltage Words = 4
+* Number of Scans Averaged by the Deck Unit = 1
+* System UpLoad Time = Apr 30 2024 17:36:37
+* NMEA Latitude = 32 42.36 N
+* NMEA Longitude = 117 14.16 W
+* NMEA UTC (Time) = Apr 30 2024  17:50:15
+* Store Lat/Lon Data = Append to Every Scan
+* SBE 11plus V 5.2
+* number of scans to average = 1
+* pressure baud rate = 9600
+* NMEA baud rate = 4800
+* Latitude/Longitude added to scan
+* GPIB address = 1
+* advance primary conductivity  0.073 seconds
+* advance secondary conductivity  0.073 seconds
+* autorun on power up is disabled
+* S>
+** Ship: Sproul 
+** Station: 
+** Operator: 
+* System UTC = Apr 30 2024 17:36:37
+*END*

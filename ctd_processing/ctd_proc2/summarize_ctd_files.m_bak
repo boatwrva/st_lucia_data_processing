@@ -1,0 +1,32 @@
+station_list={'temp','S4','S5'}
+ctd_casts={1,[2:26],[27:80]}
+
+
+this_stat=3;
+clear C
+C.station.id=station_list{this_stat};
+C.cast_numbers=ctd_casts{this_stat};
+C.base_path='/Volumes/cruise-data/science_share/ctd/processed/'
+C.z=[1:1:3000]';
+C.date=[];
+warning off
+
+for a=1:length(C.cast_numbers)
+    this_cast=C.cast_numbers(a);
+    tmpfile=num2str(1000+this_cast);
+    C.filename{a}=['IWISE10_' tmpfile(2:4) '.mat'];    
+    load([C.base_path C.filename{a}]);
+    
+    
+    big_x=[];
+    to_interp=fieldnames(datad);
+    for b=1:length(to_interp);
+        big_x=[big_x datad.(to_interp{b})];
+    end
+    tmp=interp1(datad.depth,big_x,C.z);
+    for b=1:length(to_interp);
+        C.(to_interp{b})(:,a)=tmp(:,b);
+    end
+    C.date=nanmean(C.datenum(:,a));
+end
+

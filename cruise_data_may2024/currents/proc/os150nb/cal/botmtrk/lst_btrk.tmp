@@ -1,0 +1,9 @@
+
+          dbname:     ../../adcpdb/a_sp
+          output:     a_sp.btm
+          step_size=  1
+          year_base=  2024
+          time_ranges:
+       2024/05/01  15:23:53 to 2024/05/08  04:32:40         /* whole time range */
+
+        

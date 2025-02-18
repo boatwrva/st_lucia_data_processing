@@ -1,0 +1,9 @@
+
+        dbname:         ../adcpdb/a_sp
+        output:           a_sp_npings.txt
+        step_size=        1
+        year_base=        2024
+        time_ranges:
+        all
+
+        

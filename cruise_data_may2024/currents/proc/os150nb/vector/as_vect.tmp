@@ -1,0 +1,32 @@
+
+        dbname:             ../adcpdb/a_sp
+        output:             ./vector
+        step_size:          1        /* must be 1 for navigation */
+        ndepth:             128
+        time_ranges:        separate
+        year_base=          2024
+
+        option_list:
+            pg_min=                50
+            reference:             final_ship_ref
+            regrid:                average
+               depth
+               grid_list number=  15
+               boundaries:        14 50 75 100 125 150 175 200 225 250 275 300 325 350 375 
+                                  /* The 1st boundary must */
+                                  /* start at or below the */
+                                  /* shallowest depth bin  */
+         vector:
+           minimum_npts=        2
+
+
+            ascii:
+                    minimum_percent= .50
+                    end
+
+          flag_mask:        ALL_BITS
+            end
+          end                     /* one big time range (if "single") or if "separate", */
+     @a_sp.tmg           /* explicit time ranges or of the form "@gridfile" */
+
+     

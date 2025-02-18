@@ -1,0 +1,1008 @@
+20240430 214615: INFO seriallogger (16654) ver. 1.1 starting.
+20240430 214615: INFO Current seriallogger configuration:
+
+	       directory	/space/SerialInstruments/SP2403
+	             log	bx992 fa30-ais furuno-gyro gp170-2 gp170 winch
+	         logfile	rawdatalog
+	  perdaylogfiles	true
+	  prefixlogfiles	true
+	             run	navd
+[bx992]
+	    addtimestamp	true
+	      dataformat	nmea0183
+	     description	Trimble bx992
+	       directory	bx992
+	    manufacturer	Trimble
+	        measures	"position" "course" "speed" "heading"
+	            mode	19200,n,8,1,a
+	           model	BX992
+	            port	/dev/ttyRP6
+	    serialnumber	6102C01131
+	       timeoutms	2000
+[fa30-ais]
+	    addtimestamp	true
+	      dataformat	proprietary
+	     description	Furuno FA30 Automatic Identification System
+	       directory	fa30-ais
+	    manufacturer	Furuno
+	        measures	ship presence
+	            mode	38400,n,8,1,a
+	           model	FA-30
+	            port	/dev/ttyRP7
+	    serialnumber	3560-4889
+	       timeoutms	50000
+[furuno-gyro]
+	    addtimestamp	true
+	      dataformat	nmea0183
+	     description	Furuno SC-30 satellite gyroCompass
+	       directory	furuno-gyro
+	    manufacturer	Furuno
+	        measures	heading
+	            mode	4800,n,8,1,a
+	           model	SC-30
+	            port	/dev/ttyRP4
+	    serialnumber	???
+	       timeoutms	3000
+[gp170]
+	    addtimestamp	true
+	      dataformat	nmea0183
+	     description	Furuno GP170 GPS receiver
+	       directory	gp170-gps
+	    manufacturer	Furuno
+	        measures	"position" "course" "speed" "altitude"
+	            mode	4800,n,8,1,a
+	           model	GP170
+	            port	/dev/ttyRP2
+	    serialnumber	6452-6154
+	       timeoutms	2000
+[gp170-2]
+	    addtimestamp	true
+	      dataformat	nmea0183
+	     description	Furuno GP170 GPS receiver
+	       directory	gp170-2
+	    manufacturer	Furuno
+	        measures	"position" "course" "speed" "altitude"
+	            mode	4800,n,8,1,a
+	           model	GP170
+	            port	/dev/ttyRP1
+	    serialnumber	6416-3314
+	       timeoutms	2000
+[navd]
+	         command	/opt/siosts/sbin/navd -nofork -section=navd_conf %C
+	     description	Navigation daemon
+	         enabled	true
+	     restartable	true
+[navd_conf]
+	navigation_sourc	gp170
+[winch]
+	    addtimestamp	true
+	      dataformat	proprietary
+	     description	Switched Trawl/Desh-3/Hydro/Western Gear/Northern Line feed
+	       directory	winch-lci
+	    manufacturer	Measurement Technology NW
+	        measures	"winch tension"
+	            mode	19200,n,8,1,a
+	           model	Winch Monitoring System
+	            port	/dev/ttyRP5
+	    serialnumber	???
+	       timeoutms	100
+
+20240430 214615: INFO Starting service navd: /opt/siosts/sbin/navd(16662)
+20240430 214615: INFO fa30-ais: new log file fa30-ais/fa30-ais_20240430214615.raw.
+20240430 214615: INFO gp170: new log file gp170-gps/gp170_20240430214615.raw.
+20240430 214615: INFO gp170-2: new log file gp170-2/gp170-2_20240430214615.raw.
+20240430 214615: ERROR winch: timeout
+20240430 214615: INFO furuno-gyro: new log file furuno-gyro/furuno-gyro_20240430214615.raw.
+20240430 214615: INFO bx992: new log file bx992/bx992_20240430214616.raw.
+20240430 224539: INFO Terminating service navd (16662).
+20240430 224539: INFO seriallogger (16654) terminating.
+20240430 224840: INFO seriallogger (4348) ver. 1.1 starting.
+20240430 224840: INFO Current seriallogger configuration:
+
+	       directory	/space/SerialInstruments/SP2403
+	             log	bx992 fa30-ais furuno-gyro gp170-2 gp170 winch
+	         logfile	rawdatalog
+	  perdaylogfiles	true
+	  prefixlogfiles	true
+	             run	navd
+[bx992]
+	    addtimestamp	true
+	      dataformat	nmea0183
+	     description	Trimble bx992
+	       directory	bx992
+	    manufacturer	Trimble
+	        measures	"position" "course" "speed" "heading"
+	            mode	19200,n,8,1,a
+	           model	BX992
+	            port	/dev/ttyRP6
+	    serialnumber	6102C01131
+	       timeoutms	2000
+[fa30-ais]
+	    addtimestamp	true
+	      dataformat	proprietary
+	     description	Furuno FA30 Automatic Identification System
+	       directory	fa30-ais
+	    manufacturer	Furuno
+	        measures	ship presence
+	            mode	38400,n,8,1,a
+	           model	FA-30
+	            port	/dev/ttyRP7
+	    serialnumber	3560-4889
+	       timeoutms	50000
+[furuno-gyro]
+	    addtimestamp	true
+	      dataformat	nmea0183
+	     description	Furuno SC-30 satellite gyroCompass
+	       directory	furuno-gyro
+	    manufacturer	Furuno
+	        measures	heading
+	            mode	4800,n,8,1,a
+	           model	SC-30
+	            port	/dev/ttyRP4
+	    serialnumber	???
+	       timeoutms	3000
+[gp170]
+	    addtimestamp	true
+	      dataformat	nmea0183
+	     description	Furuno GP170 GPS receiver
+	       directory	gp170-gps
+	    manufacturer	Furuno
+	        measures	"position" "course" "speed" "altitude"
+	            mode	4800,n,8,1,a
+	           model	GP170
+	            port	/dev/ttyRP2
+	    serialnumber	6452-6154
+	       timeoutms	2000
+[gp170-2]
+	    addtimestamp	true
+	      dataformat	nmea0183
+	     description	Furuno GP170 GPS receiver
+	       directory	gp170-2
+	    manufacturer	Furuno
+	        measures	"position" "course" "speed" "altitude"
+	            mode	4800,n,8,1,a
+	           model	GP170
+	            port	/dev/ttyRP1
+	    serialnumber	6416-3314
+	       timeoutms	2000
+[navd]
+	         command	/opt/siosts/sbin/navd -nofork -section=navd_conf %C
+	     description	Navigation daemon
+	         enabled	true
+	     restartable	true
+[navd_conf]
+	navigation_sourc	gp170
+[winch]
+	    addtimestamp	true
+	      dataformat	proprietary
+	     description	Switched Trawl/Desh-3/Hydro/Western Gear/Northern Line feed
+	       directory	winch-lci
+	    manufacturer	Measurement Technology NW
+	        measures	"winch tension"
+	            mode	19200,n,8,1,a
+	           model	Winch Monitoring System
+	            port	/dev/ttyRP5
+	    serialnumber	???
+	       timeoutms	100
+
+20240430 224840: INFO Starting service navd: /opt/siosts/sbin/navd(4383)
+20240430 224840: INFO bx992: new log file bx992/bx992_20240430224841.raw.
+20240430 224840: INFO fa30-ais: new log file fa30-ais/fa30-ais_20240430224841.raw.
+20240430 224840: INFO furuno-gyro: new log file furuno-gyro/furuno-gyro_20240430224841.raw.
+20240430 224840: INFO gp170-2: new log file gp170-2/gp170-2_20240430224841.raw.
+20240430 224840: INFO gp170: new log file gp170-gps/gp170_20240430224841.raw.
+20240430 224840: ERROR winch: timeout
+20240430 225245: INFO Terminating service navd (4383).
+20240430 225245: INFO seriallogger (4348) terminating.
+20240430 225245: INFO seriallogger (4648) ver. 1.1 starting.
+20240430 225245: INFO Current seriallogger configuration:
+
+	       directory	/space/SerialInstruments/SP2403
+	             log	bx992 fa30-ais furuno-gyro gp170-2 gp170 winch
+	         logfile	rawdatalog
+	  perdaylogfiles	true
+	  prefixlogfiles	true
+	             run	navd
+[bx992]
+	    addtimestamp	true
+	      dataformat	nmea0183
+	     description	Trimble bx992
+	       directory	bx992
+	    manufacturer	Trimble
+	        measures	"position" "course" "speed" "heading"
+	            mode	19200,n,8,1,a
+	           model	BX992
+	            port	/dev/ttyRP6
+	    serialnumber	6102C01131
+	       timeoutms	2000
+[fa30-ais]
+	    addtimestamp	true
+	      dataformat	proprietary
+	     description	Furuno FA30 Automatic Identification System
+	       directory	fa30-ais
+	    manufacturer	Furuno
+	        measures	ship presence
+	            mode	38400,n,8,1,a
+	           model	FA-30
+	            port	/dev/ttyRP7
+	    serialnumber	3560-4889
+	       timeoutms	50000
+[furuno-gyro]
+	    addtimestamp	true
+	      dataformat	nmea0183
+	     description	Furuno SC-30 satellite gyroCompass
+	       directory	furuno-gyro
+	    manufacturer	Furuno
+	        measures	heading
+	            mode	4800,n,8,1,a
+	           model	SC-30
+	            port	/dev/ttyRP4
+	    serialnumber	???
+	       timeoutms	3000
+[gp170]
+	    addtimestamp	true
+	      dataformat	nmea0183
+	     description	Furuno GP170 GPS receiver
+	       directory	gp170-gps
+	    manufacturer	Furuno
+	        measures	"position" "course" "speed" "altitude"
+	            mode	4800,n,8,1,a
+	           model	GP170
+	            port	/dev/ttyRP2
+	    serialnumber	6452-6154
+	       timeoutms	2000
+[gp170-2]
+	    addtimestamp	true
+	      dataformat	nmea0183
+	     description	Furuno GP170 GPS receiver
+	       directory	gp170-2
+	    manufacturer	Furuno
+	        measures	"position" "course" "speed" "altitude"
+	            mode	4800,n,8,1,a
+	           model	GP170
+	            port	/dev/ttyRP1
+	    serialnumber	6416-3314
+	       timeoutms	2000
+[navd]
+	         command	/opt/siosts/sbin/navd -nofork -section=navd_conf %C
+	     description	Navigation daemon
+	         enabled	true
+	     restartable	true
+[navd_conf]
+	navigation_sourc	gp170
+[winch]
+	    addtimestamp	true
+	      dataformat	proprietary
+	     description	Switched Trawl/Desh-3/Hydro/Western Gear/Northern Line feed
+	       directory	winch-lci
+	    manufacturer	Measurement Technology NW
+	        measures	"winch tension"
+	            mode	19200,n,8,1,a
+	           model	Winch Monitoring System
+	            port	/dev/ttyRP5
+	    serialnumber	???
+	       timeoutms	100
+
+20240430 225245: INFO Starting service navd: /opt/siosts/sbin/navd(4656)
+20240430 225245: INFO furuno-gyro: new log file furuno-gyro/furuno-gyro_20240430225246.raw.
+20240430 225245: INFO bx992: new log file bx992/bx992_20240430225246.raw.
+20240430 225245: INFO gp170-2: new log file gp170-2/gp170-2_20240430225246.raw.
+20240430 225245: INFO gp170: new log file gp170-gps/gp170_20240430225246.raw.
+20240430 225245: ERROR winch: timeout
+20240430 225245: INFO fa30-ais: new log file fa30-ais/fa30-ais_20240430225246.raw.
+20240430 235950: INFO bx992: new log file bx992/bx992_20240501000000.raw.
+20240430 235950: INFO fa30-ais: new log file fa30-ais/fa30-ais_20240501000000.raw.
+20240430 235950: INFO furuno-gyro: new log file furuno-gyro/furuno-gyro_20240501000000.raw.
+20240430 235950: INFO gp170-2: new log file gp170-2/gp170-2_20240501000000.raw.
+20240430 235950: INFO gp170: new log file gp170-gps/gp170_20240501000000.raw.
+20240430 235950: INFO winch: new log file winch-lci/winch_20240501000000.raw.
+20240501 165911: INFO winch: data received after 65186.088 seconds.
+20240501 165912: ERROR winch: timeout
+20240501 165917: INFO winch: data received after 4.672 seconds.
+20240501 173007: ERROR winch: timeout
+20240501 173007: INFO winch: data received after 0.110 seconds.
+20240501 180007: ERROR winch: timeout
+20240501 180007: INFO winch: data received after 0.010 seconds.
+20240501 181507: ERROR winch: timeout
+20240501 181507: INFO winch: data received after 0.006 seconds.
+20240501 183008: ERROR winch: timeout
+20240501 183008: INFO winch: data received after 0.008 seconds.
+20240501 184508: ERROR winch: timeout
+20240501 184508: INFO winch: data received after 0.005 seconds.
+20240501 191507: ERROR winch: timeout
+20240501 191507: INFO winch: data received after 0.093 seconds.
+20240501 191940: ERROR winch: timeout
+20240501 191945: INFO winch: data received after 4.400 seconds.
+20240501 191945: ERROR winch: timeout
+20240501 191945: INFO winch: data received after 0.400 seconds.
+20240501 191945: ERROR winch: timeout
+20240501 191946: INFO winch: data received after 0.450 seconds.
+20240501 191946: ERROR winch: timeout
+20240501 191946: INFO winch: data received after 0.450 seconds.
+20240501 191946: ERROR winch: timeout
+20240501 191947: INFO winch: data received after 0.460 seconds.
+20240501 191947: ERROR winch: timeout
+20240501 191947: INFO winch: data received after 0.450 seconds.
+20240501 191948: ERROR winch: timeout
+20240501 191948: INFO winch: data received after 0.440 seconds.
+20240501 191948: ERROR winch: timeout
+20240501 191949: INFO winch: data received after 0.460 seconds.
+20240501 191949: ERROR winch: timeout
+20240501 191949: INFO winch: data received after 0.459 seconds.
+20240501 191949: ERROR winch: timeout
+20240501 191950: INFO winch: data received after 0.450 seconds.
+20240501 191950: ERROR winch: timeout
+20240501 191950: INFO winch: data received after 0.458 seconds.
+20240501 191950: ERROR winch: timeout
+20240501 191951: INFO winch: data received after 0.442 seconds.
+20240501 191951: ERROR winch: timeout
+20240501 191951: INFO winch: data received after 0.453 seconds.
+20240501 191951: ERROR winch: timeout
+20240501 191952: INFO winch: data received after 0.442 seconds.
+20240501 191952: ERROR winch: timeout
+20240501 191952: INFO winch: data received after 0.438 seconds.
+20240501 191953: ERROR winch: timeout
+20240501 191953: INFO winch: data received after 0.450 seconds.
+20240501 191953: ERROR winch: timeout
+20240501 191954: INFO winch: data received after 0.440 seconds.
+20240501 191954: ERROR winch: timeout
+20240501 191954: INFO winch: data received after 0.450 seconds.
+20240501 191954: ERROR winch: timeout
+20240501 191955: INFO winch: data received after 0.450 seconds.
+20240501 191955: ERROR winch: timeout
+20240501 191955: INFO winch: data received after 0.460 seconds.
+20240501 191955: ERROR winch: timeout
+20240501 191956: INFO winch: data received after 0.510 seconds.
+20240501 193007: ERROR winch: timeout
+20240501 193007: INFO winch: data received after 0.007 seconds.
+20240501 201508: ERROR winch: timeout
+20240501 201508: INFO winch: data received after 0.006 seconds.
+20240501 201553: ERROR winch: timeout
+20240501 201557: INFO winch: data received after 4.134 seconds.
+20240501 201558: ERROR winch: timeout
+20240501 201558: INFO winch: data received after 0.187 seconds.
+20240501 201558: ERROR winch: timeout
+20240501 201558: INFO winch: data received after 0.398 seconds.
+20240501 201558: ERROR winch: timeout
+20240501 201559: INFO winch: data received after 0.442 seconds.
+20240501 201559: ERROR winch: timeout
+20240501 201559: INFO winch: data received after 0.453 seconds.
+20240501 201600: ERROR winch: timeout
+20240501 201600: INFO winch: data received after 0.442 seconds.
+20240501 201600: ERROR winch: timeout
+20240501 201601: INFO winch: data received after 0.445 seconds.
+20240501 201601: ERROR winch: timeout
+20240501 201601: INFO winch: data received after 0.440 seconds.
+20240501 201601: ERROR winch: timeout
+20240501 201602: INFO winch: data received after 0.460 seconds.
+20240501 201602: ERROR winch: timeout
+20240501 201602: INFO winch: data received after 0.450 seconds.
+20240501 201602: ERROR winch: timeout
+20240501 201603: INFO winch: data received after 0.450 seconds.
+20240501 201603: ERROR winch: timeout
+20240501 201603: INFO winch: data received after 0.440 seconds.
+20240501 201604: ERROR winch: timeout
+20240501 201604: INFO winch: data received after 0.450 seconds.
+20240501 201604: ERROR winch: timeout
+20240501 201605: INFO winch: data received after 0.460 seconds.
+20240501 201605: ERROR winch: timeout
+20240501 201605: INFO winch: data received after 0.450 seconds.
+20240501 201605: ERROR winch: timeout
+20240501 201606: INFO winch: data received after 0.460 seconds.
+20240501 201606: ERROR winch: timeout
+20240501 201606: INFO winch: data received after 0.440 seconds.
+20240501 201606: ERROR winch: timeout
+20240501 201607: INFO winch: data received after 0.440 seconds.
+20240501 201607: ERROR winch: timeout
+20240501 201607: INFO winch: data received after 0.460 seconds.
+20240501 201608: ERROR winch: timeout
+20240501 201608: INFO winch: data received after 0.440 seconds.
+20240501 201608: ERROR winch: timeout
+20240501 201609: INFO winch: data received after 0.460 seconds.
+20240501 201609: ERROR winch: timeout
+20240501 201609: INFO winch: data received after 0.490 seconds.
+20240501 203008: ERROR winch: timeout
+20240501 203008: INFO winch: data received after 0.111 seconds.
+20240501 210008: ERROR winch: timeout
+20240501 210008: INFO winch: data received after 0.009 seconds.
+20240501 211508: ERROR winch: timeout
+20240501 211508: INFO winch: data received after 0.002 seconds.
+20240501 213007: ERROR winch: timeout
+20240501 213007: INFO winch: data received after 0.001 seconds.
+20240501 214506: ERROR winch: timeout
+20240501 214506: INFO winch: data received after 0.000 seconds.
+20240501 214511: ERROR winch: timeout
+20240501 214511: INFO winch: data received after 0.003 seconds.
+20240501 220007: ERROR winch: timeout
+20240501 220007: INFO winch: data received after 0.011 seconds.
+20240501 223007: ERROR winch: timeout
+20240501 223007: INFO winch: data received after 0.008 seconds.
+20240501 224507: ERROR winch: timeout
+20240501 224507: INFO winch: data received after 0.010 seconds.
+20240501 230006: ERROR winch: timeout
+20240501 230006: INFO winch: data received after 0.002 seconds.
+20240501 233005: ERROR winch: timeout
+20240501 233005: INFO winch: data received after 0.002 seconds.
+20240501 234505: ERROR winch: timeout
+20240501 234505: INFO winch: data received after 0.008 seconds.
+20240501 234510: ERROR winch: timeout
+20240501 234510: INFO winch: data received after 0.010 seconds.
+20240501 235950: INFO bx992: new log file bx992/bx992_20240502000000.raw.
+20240501 235950: INFO fa30-ais: new log file fa30-ais/fa30-ais_20240502000000.raw.
+20240501 235950: INFO furuno-gyro: new log file furuno-gyro/furuno-gyro_20240502000000.raw.
+20240501 235950: INFO gp170-2: new log file gp170-2/gp170-2_20240502000000.raw.
+20240501 235950: INFO gp170: new log file gp170-gps/gp170_20240502000000.raw.
+20240501 235950: INFO winch: new log file winch-lci/winch_20240502000000.raw.
+20240502 000006: ERROR winch: timeout
+20240502 000006: INFO winch: data received after 0.003 seconds.
+20240502 000011: ERROR winch: timeout
+20240502 000011: INFO winch: data received after 0.005 seconds.
+20240502 014506: ERROR winch: timeout
+20240502 014506: INFO winch: data received after 0.004 seconds.
+20240502 023007: ERROR winch: timeout
+20240502 023007: INFO winch: data received after 0.000 seconds.
+20240502 033006: ERROR winch: timeout
+20240502 033006: INFO winch: data received after 0.007 seconds.
+20240502 034504: ERROR winch: timeout
+20240502 034505: INFO winch: data received after 0.018 seconds.
+20240502 041508: ERROR winch: timeout
+20240502 041508: INFO winch: data received after 0.006 seconds.
+20240502 043008: ERROR winch: timeout
+20240502 043008: INFO winch: data received after 0.146 seconds.
+20240502 050006: ERROR winch: timeout
+20240502 050006: INFO winch: data received after 0.003 seconds.
+20240502 050010: ERROR winch: timeout
+20240502 050010: INFO winch: data received after 0.010 seconds.
+20240502 054508: ERROR winch: timeout
+20240502 054508: INFO winch: data received after 0.004 seconds.
+20240502 060116: ERROR winch: timeout
+20240502 115345: ERROR gp170: timeout
+20240502 115345: ERROR gp170-2: timeout
+20240502 171624: INFO gp170-2: data received after 19359.592 seconds.
+20240502 171624: INFO gp170: data received after 19359.602 seconds.
+20240502 212511: INFO winch: data received after 55435.323 seconds.
+20240502 212511: ERROR winch: timeout
+20240502 212511: INFO winch: data received after 0.000 seconds.
+20240502 212512: ERROR winch: timeout
+20240502 212517: INFO winch: data received after 4.698 seconds.
+20240502 213010: ERROR winch: timeout
+20240502 213010: INFO winch: data received after 0.006 seconds.
+20240502 214511: ERROR winch: timeout
+20240502 214511: INFO winch: data received after 0.001 seconds.
+20240502 220010: ERROR winch: timeout
+20240502 220010: INFO winch: data received after 0.010 seconds.
+20240502 220206: ERROR winch: timeout
+20240502 220207: INFO winch: data received after 0.740 seconds.
+20240502 221505: ERROR winch: timeout
+20240502 221505: INFO winch: data received after 0.006 seconds.
+20240502 224505: ERROR winch: timeout
+20240502 224505: INFO winch: data received after 0.012 seconds.
+20240502 224510: ERROR winch: timeout
+20240502 224510: INFO winch: data received after 0.002 seconds.
+20240502 230007: ERROR winch: timeout
+20240502 230007: INFO winch: data received after 0.003 seconds.
+20240502 231506: ERROR winch: timeout
+20240502 231506: INFO winch: data received after 0.003 seconds.
+20240502 234511: ERROR winch: timeout
+20240502 234511: INFO winch: data received after 0.000 seconds.
+20240502 235250: ERROR winch: timeout
+20240502 235257: INFO winch: data received after 6.960 seconds.
+20240502 235950: INFO bx992: new log file bx992/bx992_20240503000000.raw.
+20240502 235950: INFO fa30-ais: new log file fa30-ais/fa30-ais_20240503000000.raw.
+20240502 235950: INFO furuno-gyro: new log file furuno-gyro/furuno-gyro_20240503000000.raw.
+20240502 235950: INFO gp170-2: new log file gp170-2/gp170-2_20240503000000.raw.
+20240502 235950: INFO gp170: new log file gp170-gps/gp170_20240503000000.raw.
+20240502 235950: INFO winch: new log file winch-lci/winch_20240503000000.raw.
+20240503 001506: ERROR winch: timeout
+20240503 001506: INFO winch: data received after 0.006 seconds.
+20240503 004507: ERROR winch: timeout
+20240503 004507: INFO winch: data received after 0.005 seconds.
+20240503 010007: ERROR winch: timeout
+20240503 010007: INFO winch: data received after 0.005 seconds.
+20240503 020008: ERROR winch: timeout
+20240503 020008: INFO winch: data received after 0.004 seconds.
+20240503 024503: ERROR winch: timeout
+20240503 024503: INFO winch: data received after 0.002 seconds.
+20240503 024508: ERROR winch: timeout
+20240503 024508: INFO winch: data received after 0.000 seconds.
+20240503 024836: ERROR winch: timeout
+20240503 191512: ERROR gp170: timeout
+20240503 191518: INFO gp170: data received after 6.243 seconds.
+20240503 191520: ERROR gp170: timeout
+20240503 191527: ERROR gp170-2: timeout
+20240503 191530: INFO gp170-2: data received after 2.690 seconds.
+20240503 191532: ERROR gp170-2: timeout
+20240503 191533: INFO gp170: data received after 12.892 seconds.
+20240503 191535: ERROR gp170: timeout
+20240503 191536: INFO gp170: data received after 0.790 seconds.
+20240503 191548: INFO gp170-2: data received after 16.012 seconds.
+20240503 191608: ERROR gp170: timeout
+20240503 191621: INFO gp170: data received after 12.656 seconds.
+20240503 191623: ERROR gp170: timeout
+20240503 191636: INFO gp170: data received after 12.896 seconds.
+20240503 191638: ERROR gp170: timeout
+20240503 191639: INFO gp170: data received after 0.792 seconds.
+20240503 203310: ERROR gp170: timeout
+20240503 203353: INFO gp170: data received after 42.740 seconds.
+20240503 203355: ERROR gp170: timeout
+20240503 203408: INFO gp170: data received after 13.456 seconds.
+20240503 203410: ERROR gp170: timeout
+20240503 203411: INFO gp170: data received after 0.990 seconds.
+20240503 203459: ERROR gp170-2: timeout
+20240503 203505: INFO gp170-2: data received after 6.680 seconds.
+20240503 203507: ERROR gp170-2: timeout
+20240503 203523: INFO gp170-2: data received after 16.130 seconds.
+20240503 235708: INFO winch: data received after 76111.805 seconds.
+20240503 235708: ERROR winch: timeout
+20240503 235715: INFO winch: data received after 6.910 seconds.
+20240503 235950: INFO bx992: new log file bx992/bx992_20240504000000.raw.
+20240503 235950: INFO fa30-ais: new log file fa30-ais/fa30-ais_20240504000000.raw.
+20240503 235950: INFO furuno-gyro: new log file furuno-gyro/furuno-gyro_20240504000000.raw.
+20240503 235950: INFO gp170-2: new log file gp170-2/gp170-2_20240504000000.raw.
+20240503 235950: INFO gp170: new log file gp170-gps/gp170_20240504000000.raw.
+20240503 235950: INFO winch: new log file winch-lci/winch_20240504000000.raw.
+20240504 004508: ERROR winch: timeout
+20240504 004508: INFO winch: data received after 0.006 seconds.
+20240504 011507: ERROR winch: timeout
+20240504 011507: INFO winch: data received after 0.002 seconds.
+20240504 013007: ERROR winch: timeout
+20240504 013007: INFO winch: data received after 0.001 seconds.
+20240504 014508: ERROR winch: timeout
+20240504 014508: INFO winch: data received after 0.001 seconds.
+20240504 020002: ERROR winch: timeout
+20240504 020002: INFO winch: data received after 0.001 seconds.
+20240504 021507: ERROR winch: timeout
+20240504 021507: INFO winch: data received after 0.009 seconds.
+20240504 031506: ERROR winch: timeout
+20240504 031506: INFO winch: data received after 0.006 seconds.
+20240504 034504: ERROR winch: timeout
+20240504 034504: INFO winch: data received after 0.003 seconds.
+20240504 034505: ERROR winch: timeout
+20240504 034505: INFO winch: data received after 0.011 seconds.
+20240504 034509: ERROR winch: timeout
+20240504 034509: INFO winch: data received after 0.010 seconds.
+20240504 041507: ERROR winch: timeout
+20240504 041507: INFO winch: data received after 0.012 seconds.
+20240504 044509: ERROR winch: timeout
+20240504 044509: INFO winch: data received after 0.016 seconds.
+20240504 053003: ERROR winch: timeout
+20240504 054046: INFO winch: data received after 642.185 seconds.
+20240504 054509: ERROR winch: timeout
+20240504 054509: INFO winch: data received after 0.017 seconds.
+20240504 060008: ERROR winch: timeout
+20240504 060008: INFO winch: data received after 0.009 seconds.
+20240504 070005: ERROR winch: timeout
+20240504 070005: INFO winch: data received after 0.007 seconds.
+20240504 071508: ERROR winch: timeout
+20240504 071508: INFO winch: data received after 0.002 seconds.
+20240504 073011: ERROR winch: timeout
+20240504 073011: INFO winch: data received after 0.001 seconds.
+20240504 080010: ERROR winch: timeout
+20240504 080010: INFO winch: data received after 0.005 seconds.
+20240504 083007: ERROR winch: timeout
+20240504 083007: INFO winch: data received after 0.000 seconds.
+20240504 084506: ERROR winch: timeout
+20240504 084506: INFO winch: data received after 0.002 seconds.
+20240504 084511: ERROR winch: timeout
+20240504 084511: INFO winch: data received after 0.010 seconds.
+20240504 090010: ERROR winch: timeout
+20240504 090010: INFO winch: data received after 0.008 seconds.
+20240504 091504: ERROR winch: timeout
+20240504 091504: INFO winch: data received after 0.002 seconds.
+20240504 093008: ERROR winch: timeout
+20240504 093009: INFO winch: data received after 0.007 seconds.
+20240504 094506: ERROR winch: timeout
+20240504 094506: INFO winch: data received after 0.008 seconds.
+20240504 094511: ERROR winch: timeout
+20240504 094511: INFO winch: data received after 0.006 seconds.
+20240504 100010: ERROR winch: timeout
+20240504 100010: INFO winch: data received after 0.007 seconds.
+20240504 101509: ERROR winch: timeout
+20240504 101509: INFO winch: data received after 0.006 seconds.
+20240504 101510: ERROR winch: timeout
+20240504 101510: INFO winch: data received after 0.012 seconds.
+20240504 110006: ERROR winch: timeout
+20240504 110006: INFO winch: data received after 0.008 seconds.
+20240504 115429: ERROR winch: timeout
+20240504 115816: INFO winch: data received after 227.298 seconds.
+20240504 120007: ERROR winch: timeout
+20240504 120007: INFO winch: data received after 0.004 seconds.
+20240504 121506: ERROR winch: timeout
+20240504 121506: INFO winch: data received after 0.004 seconds.
+20240504 124508: ERROR winch: timeout
+20240504 124508: INFO winch: data received after 0.000 seconds.
+20240504 130007: ERROR winch: timeout
+20240504 130007: INFO winch: data received after 0.009 seconds.
+20240504 141511: ERROR winch: timeout
+20240504 141511: INFO winch: data received after 0.000 seconds.
+20240504 150009: ERROR winch: timeout
+20240504 150009: INFO winch: data received after 0.008 seconds.
+20240504 151508: ERROR winch: timeout
+20240504 151508: INFO winch: data received after 0.003 seconds.
+20240504 153011: ERROR winch: timeout
+20240504 153011: INFO winch: data received after 0.004 seconds.
+20240504 154511: ERROR winch: timeout
+20240504 154511: INFO winch: data received after 0.002 seconds.
+20240504 161508: ERROR winch: timeout
+20240504 161509: INFO winch: data received after 0.004 seconds.
+20240504 180643: ERROR winch: timeout
+20240504 180647: INFO winch: data received after 4.690 seconds.
+20240504 183010: ERROR winch: timeout
+20240504 183010: INFO winch: data received after 0.008 seconds.
+20240504 184509: ERROR winch: timeout
+20240504 184509: INFO winch: data received after 0.001 seconds.
+20240504 190012: ERROR winch: timeout
+20240504 190012: INFO winch: data received after 0.004 seconds.
+20240504 191510: ERROR winch: timeout
+20240504 191510: INFO winch: data received after 0.104 seconds.
+20240504 194508: ERROR winch: timeout
+20240504 194508: INFO winch: data received after 0.005 seconds.
+20240504 194512: ERROR winch: timeout
+20240504 194512: INFO winch: data received after 0.007 seconds.
+20240504 201507: ERROR winch: timeout
+20240504 201507: INFO winch: data received after 0.016 seconds.
+20240504 203011: ERROR winch: timeout
+20240504 203011: INFO winch: data received after 0.107 seconds.
+20240504 203247: ERROR winch: timeout
+20240504 203254: INFO winch: data received after 6.993 seconds.
+20240504 203258: ERROR winch: timeout
+20240504 203305: INFO winch: data received after 6.532 seconds.
+20240504 214506: ERROR winch: timeout
+20240504 214506: INFO winch: data received after 0.004 seconds.
+20240504 214631: ERROR winch: timeout
+20240504 214959: INFO winch: data received after 207.812 seconds.
+20240504 221505: ERROR winch: timeout
+20240504 221505: INFO winch: data received after 0.000 seconds.
+20240504 223009: ERROR winch: timeout
+20240504 223009: INFO winch: data received after 0.016 seconds.
+20240504 224509: ERROR winch: timeout
+20240504 224509: INFO winch: data received after 0.000 seconds.
+20240504 230008: ERROR winch: timeout
+20240504 230008: INFO winch: data received after 0.009 seconds.
+20240504 231510: ERROR winch: timeout
+20240504 231510: INFO winch: data received after 0.005 seconds.
+20240504 232619: ERROR winch: timeout
+20240504 232619: INFO winch: data received after 0.060 seconds.
+20240504 232620: ERROR winch: timeout
+20240504 232621: INFO winch: data received after 0.670 seconds.
+20240504 233009: ERROR winch: timeout
+20240504 233009: INFO winch: data received after 0.018 seconds.
+20240504 235950: INFO bx992: new log file bx992/bx992_20240505000000.raw.
+20240504 235950: INFO fa30-ais: new log file fa30-ais/fa30-ais_20240505000000.raw.
+20240504 235950: INFO furuno-gyro: new log file furuno-gyro/furuno-gyro_20240505000000.raw.
+20240504 235950: INFO gp170-2: new log file gp170-2/gp170-2_20240505000000.raw.
+20240504 235950: INFO gp170: new log file gp170-gps/gp170_20240505000000.raw.
+20240504 235950: INFO winch: new log file winch-lci/winch_20240505000000.raw.
+20240505 004508: ERROR winch: timeout
+20240505 004508: INFO winch: data received after 0.008 seconds.
+20240505 014311: ERROR winch: timeout
+20240505 014315: INFO winch: data received after 4.421 seconds.
+20240505 014316: ERROR winch: timeout
+20240505 014316: INFO winch: data received after 0.442 seconds.
+20240505 014316: ERROR winch: timeout
+20240505 014317: INFO winch: data received after 0.451 seconds.
+20240505 014317: ERROR winch: timeout
+20240505 014317: INFO winch: data received after 0.453 seconds.
+20240505 014317: ERROR winch: timeout
+20240505 014318: INFO winch: data received after 0.442 seconds.
+20240505 014318: ERROR winch: timeout
+20240505 014318: INFO winch: data received after 0.438 seconds.
+20240505 014318: ERROR winch: timeout
+20240505 014319: INFO winch: data received after 0.450 seconds.
+20240505 014319: ERROR winch: timeout
+20240505 014319: INFO winch: data received after 0.450 seconds.
+20240505 014320: ERROR winch: timeout
+20240505 014320: INFO winch: data received after 0.450 seconds.
+20240505 014320: ERROR winch: timeout
+20240505 014321: INFO winch: data received after 0.440 seconds.
+20240505 014321: ERROR winch: timeout
+20240505 014321: INFO winch: data received after 0.450 seconds.
+20240505 014321: ERROR winch: timeout
+20240505 014322: INFO winch: data received after 0.460 seconds.
+20240505 014322: ERROR winch: timeout
+20240505 014322: INFO winch: data received after 0.460 seconds.
+20240505 014322: ERROR winch: timeout
+20240505 014323: INFO winch: data received after 0.450 seconds.
+20240505 014323: ERROR winch: timeout
+20240505 014323: INFO winch: data received after 0.440 seconds.
+20240505 014324: ERROR winch: timeout
+20240505 014324: INFO winch: data received after 0.440 seconds.
+20240505 014324: ERROR winch: timeout
+20240505 014325: INFO winch: data received after 0.450 seconds.
+20240505 014325: ERROR winch: timeout
+20240505 014325: INFO winch: data received after 0.450 seconds.
+20240505 014325: ERROR winch: timeout
+20240505 014326: INFO winch: data received after 0.450 seconds.
+20240505 014326: ERROR winch: timeout
+20240505 014326: INFO winch: data received after 0.450 seconds.
+20240505 014326: ERROR winch: timeout
+20240505 014327: INFO winch: data received after 0.450 seconds.
+20240505 030005: ERROR winch: timeout
+20240505 030005: INFO winch: data received after 0.006 seconds.
+20240505 031548: ERROR winch: timeout
+20240505 031548: INFO winch: data received after 0.670 seconds.
+20240505 033004: ERROR winch: timeout
+20240505 033004: INFO winch: data received after 0.001 seconds.
+20240505 034508: ERROR winch: timeout
+20240505 034508: INFO winch: data received after 0.005 seconds.
+20240505 050008: ERROR winch: timeout
+20240505 050008: INFO winch: data received after 0.003 seconds.
+20240505 051507: ERROR winch: timeout
+20240505 051507: INFO winch: data received after 0.008 seconds.
+20240505 053006: ERROR winch: timeout
+20240505 053006: INFO winch: data received after 0.007 seconds.
+20240505 054510: ERROR winch: timeout
+20240505 054510: INFO winch: data received after 0.005 seconds.
+20240505 060004: ERROR winch: timeout
+20240505 060004: INFO winch: data received after 0.005 seconds.
+20240505 060342: ERROR winch: timeout
+20240505 070201: INFO winch: data received after 3499.617 seconds.
+20240505 071503: ERROR winch: timeout
+20240505 071503: INFO winch: data received after 0.001 seconds.
+20240505 071508: ERROR winch: timeout
+20240505 071508: INFO winch: data received after 0.003 seconds.
+20240505 073007: ERROR winch: timeout
+20240505 073007: INFO winch: data received after 0.011 seconds.
+20240505 080010: ERROR winch: timeout
+20240505 080010: INFO winch: data received after 0.012 seconds.
+20240505 081509: ERROR winch: timeout
+20240505 081509: INFO winch: data received after 0.009 seconds.
+20240505 082549: ERROR winch: timeout
+20240505 171310: ERROR gp170-2: timeout
+20240505 171310: ERROR gp170: timeout
+20240505 175936: INFO gp170: data received after 2786.632 seconds.
+20240505 175936: INFO gp170-2: data received after 2786.632 seconds.
+20240505 230810: INFO winch: data received after 52940.667 seconds.
+20240505 231506: ERROR winch: timeout
+20240505 231506: INFO winch: data received after 0.009 seconds.
+20240505 233006: ERROR winch: timeout
+20240505 233006: INFO winch: data received after 0.003 seconds.
+20240505 233011: ERROR winch: timeout
+20240505 233011: INFO winch: data received after 0.004 seconds.
+20240505 235950: INFO bx992: new log file bx992/bx992_20240506000000.raw.
+20240505 235950: INFO fa30-ais: new log file fa30-ais/fa30-ais_20240506000000.raw.
+20240505 235950: INFO furuno-gyro: new log file furuno-gyro/furuno-gyro_20240506000000.raw.
+20240505 235950: INFO gp170-2: new log file gp170-2/gp170-2_20240506000000.raw.
+20240505 235950: INFO gp170: new log file gp170-gps/gp170_20240506000000.raw.
+20240505 235950: INFO winch: new log file winch-lci/winch_20240506000000.raw.
+20240506 010005: ERROR winch: timeout
+20240506 010005: INFO winch: data received after 0.015 seconds.
+20240506 013005: ERROR winch: timeout
+20240506 013005: INFO winch: data received after 0.082 seconds.
+20240506 020008: ERROR winch: timeout
+20240506 020008: INFO winch: data received after 0.011 seconds.
+20240506 021508: ERROR winch: timeout
+20240506 021508: INFO winch: data received after 0.001 seconds.
+20240506 023003: ERROR winch: timeout
+20240506 023003: INFO winch: data received after 0.006 seconds.
+20240506 033006: ERROR winch: timeout
+20240506 033006: INFO winch: data received after 0.005 seconds.
+20240506 041509: ERROR winch: timeout
+20240506 041509: INFO winch: data received after 0.005 seconds.
+20240506 044506: ERROR winch: timeout
+20240506 044506: INFO winch: data received after 0.020 seconds.
+20240506 050010: ERROR winch: timeout
+20240506 050010: INFO winch: data received after 0.000 seconds.
+20240506 051510: ERROR winch: timeout
+20240506 051510: INFO winch: data received after 0.003 seconds.
+20240506 054507: ERROR winch: timeout
+20240506 054507: INFO winch: data received after 0.004 seconds.
+20240506 060006: ERROR winch: timeout
+20240506 060006: INFO winch: data received after 0.004 seconds.
+20240506 060010: ERROR winch: timeout
+20240506 060010: INFO winch: data received after 0.008 seconds.
+20240506 061505: ERROR winch: timeout
+20240506 061505: INFO winch: data received after 0.004 seconds.
+20240506 061510: ERROR winch: timeout
+20240506 061510: INFO winch: data received after 0.016 seconds.
+20240506 063003: ERROR winch: timeout
+20240506 063003: INFO winch: data received after 0.005 seconds.
+20240506 064507: ERROR winch: timeout
+20240506 064507: INFO winch: data received after 0.006 seconds.
+20240506 071621: ERROR winch: timeout
+20240506 071621: INFO winch: data received after 0.009 seconds.
+20240506 073030: ERROR winch: timeout
+20240506 073030: INFO winch: data received after 0.105 seconds.
+20240506 074514: ERROR winch: timeout
+20240506 074514: INFO winch: data received after 0.013 seconds.
+20240506 075417: ERROR winch: timeout
+20240506 075623: INFO winch: data received after 126.562 seconds.
+20240506 080013: ERROR winch: timeout
+20240506 080013: INFO winch: data received after 0.005 seconds.
+20240506 081516: ERROR winch: timeout
+20240506 081516: INFO winch: data received after 0.007 seconds.
+20240506 082149: ERROR winch: timeout
+20240506 082151: ERROR gp170-2: timeout
+20240506 082151: ERROR gp170: timeout
+20240506 141734: INFO gp170-2: data received after 21343.296 seconds.
+20240506 141734: INFO gp170: data received after 21343.296 seconds.
+20240506 141741: INFO winch: data received after 21352.121 seconds.
+20240506 143004: ERROR winch: timeout
+20240506 143004: INFO winch: data received after 0.001 seconds.
+20240506 150010: ERROR winch: timeout
+20240506 150010: INFO winch: data received after 0.005 seconds.
+20240506 153004: ERROR winch: timeout
+20240506 153004: INFO winch: data received after 0.002 seconds.
+20240506 153010: ERROR winch: timeout
+20240506 153010: INFO winch: data received after 0.002 seconds.
+20240506 160010: ERROR winch: timeout
+20240506 160010: INFO winch: data received after 0.008 seconds.
+20240506 161509: ERROR winch: timeout
+20240506 161509: INFO winch: data received after 0.008 seconds.
+20240506 161510: ERROR winch: timeout
+20240506 161510: INFO winch: data received after 0.005 seconds.
+20240506 164504: ERROR winch: timeout
+20240506 164504: INFO winch: data received after 0.053 seconds.
+20240506 164509: ERROR winch: timeout
+20240506 164509: INFO winch: data received after 0.006 seconds.
+20240506 164809: ERROR winch: timeout
+20240506 164810: INFO winch: data received after 1.660 seconds.
+20240506 164811: ERROR winch: timeout
+20240506 164816: INFO winch: data received after 4.710 seconds.
+20240506 170007: ERROR winch: timeout
+20240506 170007: INFO winch: data received after 0.007 seconds.
+20240506 171507: ERROR winch: timeout
+20240506 171507: INFO winch: data received after 0.005 seconds.
+20240506 172036: ERROR winch: timeout
+20240506 172037: INFO winch: data received after 0.651 seconds.
+20240506 173012: ERROR winch: timeout
+20240506 173012: INFO winch: data received after 0.019 seconds.
+20240506 174512: ERROR winch: timeout
+20240506 174512: INFO winch: data received after 0.011 seconds.
+20240506 174720: ERROR winch: timeout
+20240506 174727: INFO winch: data received after 6.832 seconds.
+20240506 174728: ERROR winch: timeout
+20240506 174734: INFO winch: data received after 6.270 seconds.
+20240506 180010: ERROR winch: timeout
+20240506 180010: INFO winch: data received after 0.003 seconds.
+20240506 184504: ERROR winch: timeout
+20240506 184504: INFO winch: data received after 0.003 seconds.
+20240506 190004: ERROR winch: timeout
+20240506 190004: INFO winch: data received after 0.005 seconds.
+20240506 191052: ERROR winch: timeout
+20240506 191052: INFO winch: data received after 0.066 seconds.
+20240506 191053: ERROR winch: timeout
+20240506 191057: INFO winch: data received after 4.673 seconds.
+20240506 193004: ERROR winch: timeout
+20240506 193004: INFO winch: data received after 0.002 seconds.
+20240506 200010: ERROR winch: timeout
+20240506 200010: INFO winch: data received after 0.017 seconds.
+20240506 201510: ERROR winch: timeout
+20240506 201510: INFO winch: data received after 0.008 seconds.
+20240506 201737: ERROR winch: timeout
+20240506 201744: INFO winch: data received after 6.852 seconds.
+20240506 201804: ERROR winch: timeout
+20240506 201811: INFO winch: data received after 6.824 seconds.
+20240506 202541: ERROR winch: timeout
+20240506 202547: INFO winch: data received after 6.342 seconds.
+20240506 203009: ERROR winch: timeout
+20240506 203009: INFO winch: data received after 0.110 seconds.
+20240506 204509: ERROR winch: timeout
+20240506 204509: INFO winch: data received after 0.007 seconds.
+20240506 210008: ERROR winch: timeout
+20240506 210008: INFO winch: data received after 0.004 seconds.
+20240506 210009: ERROR winch: timeout
+20240506 210009: INFO winch: data received after 0.144 seconds.
+20240506 211504: ERROR winch: timeout
+20240506 211504: INFO winch: data received after 0.009 seconds.
+20240506 214508: ERROR winch: timeout
+20240506 214508: INFO winch: data received after 0.005 seconds.
+20240506 220007: ERROR winch: timeout
+20240506 220007: INFO winch: data received after 0.004 seconds.
+20240506 223154: ERROR winch: timeout
+20240506 223159: INFO winch: data received after 4.690 seconds.
+20240506 224509: ERROR winch: timeout
+20240506 224509: INFO winch: data received after 0.003 seconds.
+20240506 230008: ERROR winch: timeout
+20240506 230008: INFO winch: data received after 0.001 seconds.
+20240506 233003: ERROR winch: timeout
+20240506 233003: INFO winch: data received after 0.070 seconds.
+20240506 234509: ERROR winch: timeout
+20240506 234509: INFO winch: data received after 0.005 seconds.
+20240506 234530: ERROR winch: timeout
+20240506 234537: INFO winch: data received after 6.896 seconds.
+20240506 235950: INFO bx992: new log file bx992/bx992_20240507000000.raw.
+20240506 235950: INFO fa30-ais: new log file fa30-ais/fa30-ais_20240507000000.raw.
+20240506 235950: INFO furuno-gyro: new log file furuno-gyro/furuno-gyro_20240507000000.raw.
+20240506 235950: INFO gp170-2: new log file gp170-2/gp170-2_20240507000000.raw.
+20240506 235950: INFO gp170: new log file gp170-gps/gp170_20240507000000.raw.
+20240506 235950: INFO winch: new log file winch-lci/winch_20240507000000.raw.
+20240507 000008: ERROR winch: timeout
+20240507 000008: INFO winch: data received after 0.004 seconds.
+20240507 001504: ERROR winch: timeout
+20240507 001504: INFO winch: data received after 0.006 seconds.
+20240507 001509: ERROR winch: timeout
+20240507 001509: INFO winch: data received after 0.010 seconds.
+20240507 004507: ERROR winch: timeout
+20240507 004507: INFO winch: data received after 0.071 seconds.
+20240507 014509: ERROR winch: timeout
+20240507 014509: INFO winch: data received after 0.000 seconds.
+20240507 015217: ERROR winch: timeout
+20240507 015217: INFO winch: data received after 0.110 seconds.
+20240507 015218: ERROR winch: timeout
+20240507 015223: INFO winch: data received after 4.854 seconds.
+20240507 020009: ERROR winch: timeout
+20240507 020009: INFO winch: data received after 0.001 seconds.
+20240507 033006: ERROR winch: timeout
+20240507 033006: INFO winch: data received after 0.000 seconds.
+20240507 034103: ERROR winch: timeout
+20240507 154720: INFO winch: data received after 43577.115 seconds.
+20240507 161505: ERROR winch: timeout
+20240507 161505: INFO winch: data received after 0.085 seconds.
+20240507 163009: ERROR winch: timeout
+20240507 163009: INFO winch: data received after 0.007 seconds.
+20240507 164505: ERROR winch: timeout
+20240507 164505: INFO winch: data received after 0.010 seconds.
+20240507 164510: ERROR winch: timeout
+20240507 164510: INFO winch: data received after 0.002 seconds.
+20240507 170005: ERROR winch: timeout
+20240507 170005: INFO winch: data received after 0.002 seconds.
+20240507 171506: ERROR winch: timeout
+20240507 171506: INFO winch: data received after 0.014 seconds.
+20240507 171508: ERROR winch: timeout
+20240507 171508: INFO winch: data received after 0.006 seconds.
+20240507 171508: ERROR winch: timeout
+20240507 171508: INFO winch: data received after 0.009 seconds.
+20240507 173009: ERROR winch: timeout
+20240507 173009: INFO winch: data received after 0.001 seconds.
+20240507 174511: ERROR winch: timeout
+20240507 174511: INFO winch: data received after 0.008 seconds.
+20240507 180007: ERROR winch: timeout
+20240507 180007: INFO winch: data received after 0.002 seconds.
+20240507 183006: ERROR winch: timeout
+20240507 183006: INFO winch: data received after 0.001 seconds.
+20240507 183011: ERROR winch: timeout
+20240507 183011: INFO winch: data received after 0.004 seconds.
+20240507 184506: ERROR winch: timeout
+20240507 184506: INFO winch: data received after 0.114 seconds.
+20240507 184511: ERROR winch: timeout
+20240507 184511: INFO winch: data received after 0.017 seconds.
+20240507 190009: ERROR winch: timeout
+20240507 190009: INFO winch: data received after 0.101 seconds.
+20240507 191509: ERROR winch: timeout
+20240507 191509: INFO winch: data received after 0.015 seconds.
+20240507 193004: ERROR winch: timeout
+20240507 193004: INFO winch: data received after 0.005 seconds.
+20240507 193004: ERROR winch: timeout
+20240507 193004: INFO winch: data received after 0.002 seconds.
+20240507 193005: ERROR winch: timeout
+20240507 193005: INFO winch: data received after 0.010 seconds.
+20240507 193007: ERROR winch: timeout
+20240507 193007: INFO winch: data received after 0.008 seconds.
+20240507 194512: ERROR winch: timeout
+20240507 194512: INFO winch: data received after 0.011 seconds.
+20240507 201505: ERROR winch: timeout
+20240507 201505: INFO winch: data received after 0.077 seconds.
+20240507 201510: ERROR winch: timeout
+20240507 201510: INFO winch: data received after 0.007 seconds.
+20240507 203011: ERROR winch: timeout
+20240507 203011: INFO winch: data received after 0.009 seconds.
+20240507 204507: ERROR winch: timeout
+20240507 204507: INFO winch: data received after 0.000 seconds.
+20240507 204509: ERROR winch: timeout
+20240507 204509: INFO winch: data received after 0.018 seconds.
+20240507 210012: ERROR winch: timeout
+20240507 210012: INFO winch: data received after 0.111 seconds.
+20240507 212908: ERROR winch: timeout
+20240507 235950: INFO bx992: new log file bx992/bx992_20240508000000.raw.
+20240507 235950: INFO fa30-ais: new log file fa30-ais/fa30-ais_20240508000000.raw.
+20240507 235950: INFO furuno-gyro: new log file furuno-gyro/furuno-gyro_20240508000000.raw.
+20240507 235950: INFO gp170-2: new log file gp170-2/gp170-2_20240508000000.raw.
+20240507 235950: INFO gp170: new log file gp170-gps/gp170_20240508000000.raw.
+20240507 235950: INFO winch: new log file winch-lci/winch_20240508000000.raw.
+20240508 010520: INFO winch: data received after 12971.965 seconds.
+20240508 011508: ERROR winch: timeout
+20240508 011508: INFO winch: data received after 0.004 seconds.
+20240508 013008: ERROR winch: timeout
+20240508 013008: INFO winch: data received after 0.018 seconds.
+20240508 014502: ERROR winch: timeout
+20240508 014502: INFO winch: data received after 0.001 seconds.
+20240508 014505: ERROR winch: timeout
+20240508 014505: INFO winch: data received after 0.003 seconds.
+20240508 020006: ERROR winch: timeout
+20240508 020006: INFO winch: data received after 0.003 seconds.
+20240508 023009: ERROR winch: timeout
+20240508 023009: INFO winch: data received after 0.104 seconds.
+20240508 030003: ERROR winch: timeout
+20240508 030003: INFO winch: data received after 0.000 seconds.
+20240508 033135: ERROR winch: timeout

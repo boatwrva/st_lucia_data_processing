@@ -1,0 +1,30 @@
+
+        dbname:             ../adcpdb/a_sp
+        output:             ./contour
+        step_size:          1        /* must be 1 for navigation */
+        ndepth:             128
+        time_ranges:        separate
+        year_base=          2024
+
+        option_list:
+            pg_min=                50
+            reference:             final_ship_ref
+
+            regrid:         average
+                            depth
+
+                            grid number=    80
+                            origin=         14
+                            increment=      5
+
+
+            ascii:
+                    minimum_percent= .50
+                    end
+
+          flag_mask:        ALL_BITS
+            end
+          end
+     @a_sp.tmg             /* explicit time ranges or of the form "@gridfile" */
+
+     

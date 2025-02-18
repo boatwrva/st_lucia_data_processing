@@ -1,0 +1,30 @@
+2024-04-17 22:13:52,339 ERROR    logsubs        In start_logging
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/uhdas-0.0.0-py3.8.egg/uhdas/serial/logsubs.py", line 625, in start_logging
+    self.logproc.new_connection(start_time)
+  File "/usr/local/lib/python3.8/dist-packages/uhdas-0.0.0-py3.8.egg/uhdas/serial/logsubs.py", line 221, in new_connection
+    raise SystemCommandError(msg1 + msg2 + msg3)
+uhdas.serial.logsubs.SystemCommandError: Error in new_connection: /usr/local/bin/ser_asc failed to start.
+Command: /usr/local/bin/ser_asc -y 2024 -P ttySI2 -b 4800 -d /home/data/test_1/raw/gpshead -i /tmp/SerialLogger/inpipe.ttySI2 -o /tmp/SerialLogger/outpipe.ttySI2  -T 1713392030   -F -m 1 -H 2  -f sp -e hdg -Y2 -c '$GPHDT' '$GPRMC' 2> /tmp/stderr.ttySI2 &
+ERROR: Can't open serial port: /dev/ttySI2.
+
+2024-04-17 22:13:54,410 ERROR    logsubs        In start_logging
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/uhdas-0.0.0-py3.8.egg/uhdas/serial/logsubs.py", line 625, in start_logging
+    self.logproc.new_connection(start_time)
+  File "/usr/local/lib/python3.8/dist-packages/uhdas-0.0.0-py3.8.egg/uhdas/serial/logsubs.py", line 221, in new_connection
+    raise SystemCommandError(msg1 + msg2 + msg3)
+uhdas.serial.logsubs.SystemCommandError: Error in new_connection: /usr/local/bin/ser_asc failed to start.
+Command: /usr/local/bin/ser_asc -y 2024 -P ttySI4 -b 4800 -d /home/data/test_1/raw/gp170a -i /tmp/SerialLogger/inpipe.ttySI4 -o /tmp/SerialLogger/outpipe.ttySI4  -T 1713392030   -F -m 1 -H 2  -f sp -e gps -Y2 -c '$GPGGA' 2> /tmp/stderr.ttySI4 &
+ERROR: Can't open serial port: /dev/ttySI4.
+
+2024-04-17 22:13:56,418 ERROR    logsubs        In start_logging
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/uhdas-0.0.0-py3.8.egg/uhdas/serial/logsubs.py", line 625, in start_logging
+    self.logproc.new_connection(start_time)
+  File "/usr/local/lib/python3.8/dist-packages/uhdas-0.0.0-py3.8.egg/uhdas/serial/logsubs.py", line 221, in new_connection
+    raise SystemCommandError(msg1 + msg2 + msg3)
+uhdas.serial.logsubs.SystemCommandError: Error in new_connection: /usr/local/bin/ser_asc failed to start.
+Command: /usr/local/bin/ser_asc -y 2024 -P ttySI5 -b 4800 -d /home/data/test_1/raw/gp170b -i /tmp/SerialLogger/inpipe.ttySI5 -o /tmp/SerialLogger/outpipe.ttySI5  -T 1713392030   -F -m 1 -H 2  -f sp -e gps -Y2 -c '$GPGGA' 2> /tmp/stderr.ttySI5 &
+ERROR: Can't open serial port: /dev/ttySI5.
+

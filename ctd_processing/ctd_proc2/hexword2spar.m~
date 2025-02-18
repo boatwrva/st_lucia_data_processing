@@ -1,0 +1,15 @@
+  function [v1, v2] = hexword2volt(h)
+% function [v1, v2] = hexword2volt(h)
+% each byte is given as two hex digits
+% each SB voltage is 1.5 words (8 MSB + 4 LSB)
+% calculates 2 voltages from 3 byte word
+ 
+word1 = dec2bin(hex2dec(h(1:2)))
+word2 = dec2bin(hex2dec(h(3:4)))
+word3 = dec2bin(hex2dec(h(5:6)))
+
+v1 = bin2dec([word1 word2(1:4)]);
+v2 = bin2dec([word2(5:8) word3]);
+
+v1 = 5*(1 - v1/4095);
+v2 = 5*(1 - v2/4095);

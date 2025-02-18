@@ -1,0 +1,846 @@
+# SP24A.ACQ 18-APRIL-2024
+#
+# 2024-04-18: bhalstead, mthompson, mrhughes, mm installed Met sensors and updated met.acq
+# 2024-04-22:mmanchanthasouk replaced tsg. matacq updated to reflect 
+# STS Meteorological Acquisition Program
+# Serial Port and Sensor Configuration/Calibrations file
+# R/V Sproul
+#
+################################################################################
+# UNIT 1-2: MAINBOARD DB9 COM Ports Configuration
+################################################################################
+UNIT1   0 COMM1  9600 NONE 8 1   Spare
+UNIT2   0 COMM2  4800 NONE 8 1   Spare
+################################################################################
+# UNIT 3-34: COMPUTER LAB RocketPort RJ45 COM Ports Configuration
+################################################################################
+UNIT3   1 COMM3  9600 NONE 8 1   RS485 I/O    - MET Sensors Top Bridge
+UNIT4   0 COMM4  9600 NONE 8 1   Spare
+UNIT5   0 COMM5  9600 NONE 8 1   Spare
+UNIT6   1 COMM6  4800 NONE 8 1   RS232 Input  - GPS GP170
+UNIT7   1 COMM7  4800 NONE 8 1   RS232 Input  - SC-30 Gyro
+UNIT8   0 COMM8  9600 NONE 8 1   RS232 Input  - Knudsen Depth
+UNIT9   1 COMM9  4800 NONE 8 1   RS232 Input  - Ashtech
+UNIT10  1 COMM10 4800 NONE 8 1   RS232 Input  - GPS GP170-2
+UNIT11 20 COMM11 9600 NONE 8 1   RS232 Output - Winch Data Out to Splitter
+UNIT12 14 COMM12 9600 NONE 8 1   RS422 Output - Surface PAR to CTD
+UNIT13  1 COMM13 19200 NONE 8 1   RS232 Input  - CTD Data in
+UNIT14  0 COMM14 4800 NONE 8 1   Spare
+UNIT15  4 COMM15 9600 NONE 8 1   RS232 Output - MET Data out (COR)
+UNIT16  1 COMM16 19200 NONE 8 1   RS232 Input  - Winch Wire(LCI90) 
+UNIT17  1 COMM17 9600 NONE 8 1   RS485 I/O    - Sea Temp Sensors adapted to 232
+UNIT18  0 COMM18 4800 NONE 8 1  Spare
+UNIT19  0 COMM19 9600 NONE 8 1  Bad Port - DO NOT USE
+UNIT20  0 COMM20 9600 NONE 8 1  RS232 Input Speed Log
+UNIT21  0 COMM21 4800 NONE 8 1  Spare
+UNIT22  1 COMM22 4800 NONE 8 1  RS232 Input - Depth from Bridge fathometer
+UNIT23  0 COMM23 9600 NONE 8 1   Spare
+UNIT24  0 COMM24 9600 NONE 8 1   Spare
+UNIT25  0 COMM25 9600 NONE 8 1   Spare
+UNIT26  0 COMM26 9600 NONE 8 1   Spare
+UNIT27  0 COMM27 9600 NONE 8 1   Spare
+UNIT28  0 COMM28 9600 NONE 8 1   Spare
+UNIT29  0 COMM29 9600 NONE 8 1   Spare
+UNIT30  0 COMM30 9600 NONE 8 1   Spare
+UNIT31  0 COMM31 9600 NONE 8 1   Spare
+UNIT32  0 COMM32 9600 NONE 8 1   Spare
+UNIT33  0 COMM33 9600 NONE 8 1   Spare
+UNIT34  0 COMM34 9600 NONE 8 1   Spare
+################################################################################
+# UNIT 35-42: MAIN LAB COM-via-net Serial Ports Configuration
+################################################################################
+UNIT35 1  COMM35  19200 NONE 8 1  # RS232 Input - Transmissometer
+UNIT36 20 COMM36  4800 NONE 8 1  # RS232 Output - GGA, VTG, ZDA, HDT
+UNIT37 1  COMM37  9600 NONE 8 1  # RS232 Underway Input Main Lab SBE 45 TSG
+UNIT38 1  COMM38  9600 NONE 8 1  # RS485 Underway input(s), Main Lab (SBE 43, WS3S, etc)
+UNIT39 1  COMM39  9600 NONE 8 1  # Oxygen SBE 63 if installed
+UNIT40 1  COMM40 19200 NONE 8 1  # Wetlabs digital Fluorometer if installed
+UNIT41 20 COMM41  4800 NONE 8 1  #  RS232 Output - OUT32 to MVP for Ohman/Landry cruises
+UNIT42 0  COMM42  9600 NONE 8 1  # Spare
+################################################################################
+# UNIT 64-127: UDP/IP datagram modules
+# As practical, Source port = Destination port - 1
+################################################################################
+UNIT64  9 UDP    40009 NONE 40008 10.110.148.255  # Output - DCC Data to Acq subnet broadcast
+UNIT65 19 UDP    40019 NONE 40018 10.110.148.255  # Output - $WICOR to Acq subnet broadcast
+UNIT66 81 UDP    40183 NONE 40182 10.110.148.255  # Output - OUT66 to Acq subnet broadcast
+UNIT67 80 UDP    55000 NONE NONE  NONE   	  # Input  - Knudsen 3260 UDP feed from subnet broadcast
+UNIT68 81 UDP    40186 NONE 40187 137.110.148.255  # Output - OUT66 to Acq subnet broadcast
+UNIT69 80 UDP    28063 NONE NONE  NONE   	  # Input  - Trimble BX992 10.110.148.63
+
+
+################################################################################
+# Module initialization, in order of preference.
+#	Any defined Output modules should be listed here.  To disable, set 
+#	SERUNITNUM = 0 in the module itself.
+################################################################################
+STARTMOD
+	TMP73 BPR67 HRH32
+	PRC04
+	LWR21 SWR21 PAR08 WND95
+	TSG67 FLU63 OXY63 XMS76
+	SST33
+	PDR02 SND01 NME05 NME01 NME02 GYR01 
+	WCH02 IST01
+	OUT02 OUT05 OUT18 OUT66 OUT36 OUT41
+ENDMOD
+################################################################################
+
+[GENERAL]
+
+	# Rely on ntp.sproul.ucsd.edu for time sync (system settings).
+	GPS_SYNCH		= TRUE
+
+	########################################################################
+	# Vessel Info
+	########################################################################
+	TITLE			= R/V Sproul MET System
+	CALL_SIGN		= WSQ2674
+	SHIP			= Sproul
+	RADIO_CALL_SIGN		= WSQ2674
+
+	########################################################################
+	# Write settings
+	########################################################################
+	PRINT_EN		= FALSE
+	MK_COR			= TRUE
+	MK_UNC			= TRUE
+	MK_LOG			= TRUE
+	MK_DCC			= TRUE
+	MKCRUISEDIRS		= TRUE
+	DCC_INTERVAL		= 60.0
+	FileWriteInterval	= 15.0
+# For FLEAT-related cruises, e.g., SP1725 Paloczy Filho:
+#	FileWriteInterval	= 1.0
+	SerialWriteInterval	= 15.0
+	TIMEOUT			= 400
+	ONEGPS2FILE		= TRUE
+	MAX_SCAN_RATE		= 10.0
+
+	########################################################################
+	# Global E-mail settings
+	########################################################################
+	# If configured, use local IIS SMTP service to relay mail
+	# to ship's SMTP server.
+	# Converted 2012-10-16: mhuey
+	MAIL_SERVER		= 127.0.0.1
+	# If not, use shipboard SMTP server
+	#MAIL_SERVER		= smtp.sproul.sio.ucsd.edu
+	MAIL_RETADD		= sts-cr@ucsd.edu
+
+	########################################################################
+	# SIO shiptrack E-mail settings.
+	# NOTE: you must also set the cruisename in C:\MET\cruisename.txt
+	########################################################################
+	# temporarily disable ShipTrack emails due to mail routing issues HKJ 13june2021
+	#SHIPTRACK_RECEP		= sio-shiptracks@ucsd.edu
+
+	########################################################################
+	# SAMOS and NOAA E-mail Settings
+	########################################################################
+	MAIL_NOAA		= webship@noaa.gov
+	MAIL_RECEP		= samos_data@coaps.fsu.edu, cmattson@ucsd.edu
+	
+		################################################################
+		# Note the following SAMOS locations for module configuration:
+		# E.G. SAMOS_LD	= B
+		################################################################
+		# B = Bow mounted MET Mast
+		# U = UCW intake area
+		# A = Aft (stern weather deck)
+		# P = Port
+		# S = Starboard
+		# H = Aft Hangar (On top)
+		# K = Fwd Hangar(On Top)
+		# M = Mast (Main mast or upper midships area)
+		# T = Bridge (On Top)
+		# R = Bridge/Chart Room
+		# W = Wet Lab
+		# Y = Hydro Lab
+		# C = Computer Lab 01 Van
+		# D = Top of Computer Lab 01 Van
+		# N = Main Lab
+		# E = Engine room
+		# O = Bio Lab
+	########################################################################
+	# Surface PAR to CTD Config
+	########################################################################
+
+	SPARSCL = 1000.0, 0.0
+#
+#	Winch Labels
+	WID1	= CTD, 0
+	WID2	= Trawl, 0
+
+################################################################################
+# Customized output modules, in alphanumeric order.
+################################################################################
+
+
+[OUT02]
+	SERUNITNUM		= 14
+	MKOUTFILE		= FALSE
+	INTERVAL		= 1.0
+	NMEA			= GGA, ZDA, VHW, DBS
+
+[OUT03]
+	SERUNITNUM		= 5
+	MKOUTFILE		= FALSE
+	INTERVAL		= 1.0
+	NMEA			= RMC, HDT, DBT
+
+[OUT05]
+	# DESCRIPTION:  Winch data.
+	SERUNITNUM		=11 
+	PARAMETERS		= ZO ZS ZT IP IV IA LA LO SY
+	PARAMETER NUMBERS	= 0 0 0 0 0 0 0 0 0
+	PRECISION		= 1 1 1 1 1 1 5 5 3
+	MKOUTFILE		= TRUE
+	ADDCRC			= FALSE
+	INTERVAL		= 2.0
+	ADDTIMESTAMP		= TRUE
+	FORMAT			= %5.0f,%3.0f,%5.0f,%5.0f,%6.1f,%5.1f,%8.4f,%9.4f,%.1f
+	EXTENSION		= WCH
+	HEADER			= #Date Time   Count MPM   LBS  CTDD  CSpd   Altim    LAT      LON      Secso
+
+[OUT06]
+	# DESCRIPTION: TSG Data to aid in salinity corrections
+	SERUNITNUM		= 0
+	PARAMETERS		= TT, TG, SA, TT, TG, SA, LA, LO, CR, SP
+	PARAMETER NUMBERS	= 0, 0, 0, 1, 1, 1, 0, 0, 0, 0
+	PRECISION		= 3, 3, 3, 3, 3, 3, 5, 5, 1, 1
+	MKOUTFILE		= TRUE
+	INTERVAL		= 60.0
+	ADDCRC			= FALSE
+	ADDTIMESTAMP		= TRUE
+	EXTENSION		= SLT
+	HEADER			= #SG_Date Time TT     TG     SA      TT-2   TG-2  SA-2    LAT      LON      COG  SOG
+
+[OUT18]
+	# DESCRIPTION: 1Hz NMEA position/heading plus depth
+	# Used for Internet heading feed.  DO NOT CHANGE
+	SERUNITNUM		= 18
+	MKOUTFILE		= FALSE
+	INTERVAL		= 1
+#	NMEA			= GGA,GLL,VTG,ZDA,HDT,DBT
+	NMEA			= GGA,GLL,HDT,ZDA
+
+[OUT35]
+	SERUNITNUM		= 35
+	MKOUTFILE		= FALSE
+	#INTERVAL		= 0.1 # Ohman requested 1 Hz
+	INTERVAL		= 1.0 # Ohman requested 1 Hz
+	NMEA			= GGA, ZDA, VHW, DBS
+
+[OUT41]
+	SERUNITNUM		= 41
+	MKOUTFILE		= FALSE
+	#INTERVAL		= 0.1 # Ohman requested 1 Hz
+	INTERVAL		= 1.0 # Ohman requested 1 Hz
+	NMEA			= GGA, ZDA, VHW, DBS
+[OUT36]
+	SERUNITNUM		= 36
+	MKOUTFILE		= FALSE
+	INTERVAL		= 1.0
+	NMEA			= GGA, VTG, ZDA, HDT
+
+
+[OUT65]
+	# DESCRIPTION:WICOR 
+	MKOUTFILE		= FALSE
+	INTERVAL		= 1.0
+        PARAMETERS              = FL OX
+	NMEA			= GGA,VTG,ZDA,HDT,DBT
+
+[OUT66]
+	# DESCRIPTION: 1Hz NMEA 0183 position/heading for UDP.
+	SERUNITNUM		= 66,68
+	MKOUTFILE		= FALSE
+	INTERVAL		= 1.0
+	NMEA			= GGA,VTG,ZDA,HDT,DBT
+
+################################################################################
+# Sensor modules, in alphanumeric order.
+################################################################################
+
+
+
+[BPR67]
+	SENSOR		= Barometric Pressure
+	MODEL		= 61402V
+	SERIAL		= BPA17357
+	MFG		= RM Young
+	CAL_LAB		= STS
+	CAL_DATE	= 02-Feb-2024
+	LOCATION	= Top Bridge 33'above MWL
+	INSTALL_DATE	= 18-Apr-2024
+	OWNER		= SIO/STS
+	DCC		= TRUE
+	SAMOS_LD	= T
+	# Module address
+	CMD		= #02\r
+	# Module setup parameters
+	MSP		= 3 2 0 0 13 0 1  7 0 0 0 0 0 0 0
+	MCP		= 1 1 2 0  13 37 0 0 0 0 0 0
+	# Emulation Value 1000.48
+	Emulation	= 1260.46
+	AVGTYPE		= 1 1
+	SECSTOAVG	= 60.0 60.0
+	# A/D Calibration
+	ADCAL		= 1.0 0.0
+	# Corrections
+	COR		=  1.20005071E+2 5.00485127E+2
+	# Altitude of sensor above water line in Meters
+	COR2		= 10.0
+
+[FLU63]	SENSOR		= Fluorometer
+	MODEL		= Wetstar
+	SERIAL		= WS3S-963P
+	MFG		= Wetlabs
+	CAL_LAB		= Wetlabs
+	CAL_DATE	= 11-Mar-2019
+	LOCATION	= Main/Dry Lab-UCSW line
+	OWNER		= SIO/STS
+	INSTALL_DATE	= 18-Apr-2024
+	DCC		= FALSE
+	SAMOS_LD	= W
+	CMD		= #i\r
+	LABELS-TAB	= WetStar_Flr
+	LABELS-SC	= WS_Flr
+	# Module setup parameters	 
+	MSP		= 38 1 0 0 10 0 1  1 0 0 0 0 0 0 0
+	MCP		= 1 1 1 3  3 0 0 0 0 0 0 0
+	AVGTYPE		= 1
+	SECSTOAVG	= 30.0
+	# Emulation value	 
+	Emulation	= 2.5
+	# A/D Calibration	 
+	ADCAL		= 0.001 0.0
+	#Slope, offset	 
+	# Scale, -Vblank	 
+# Old offset giving negative results
+	#COR		 =  11.1 -0.063
+	COR		 =  11.1 -0.058
+
+[GYR01]
+	SENSOR		= Gyro
+	MODEL		= SC-30
+	SERIAL		= ??
+	MFG		= Furuno
+	CAL_LAB		= n/a
+	CAL_DATE	= n/a
+	LOCATION	= SIO/STS
+	OWNER		= Sproul
+	DCC		= TRUE
+	SAMOS_LD	= R
+	# Module setup parameters
+	MSP		= 7 8
+	Emulation	= 279.0
+	MCP		= 1 1 1 0  0 0 0 0 0 0 0 0
+	COR		= 0.0
+
+
+[HRH32]
+	SENSOR		= Relative Humidity
+        MODEL		= HTP201
+	SERIAL		= 2305210000033B
+	MFG		= ELEKTRONIK
+	CAL_LAB		= SIO/STS
+	Cal_Date	= 13-Feb-2024
+	LOCATION	= Top Bridge 33' Above MWL
+	INSTALL_DATE 	= 18-Apr-2024
+	OWNER		= SIO/STS
+	DCC		= TRUE
+	SAMOS_LD	= T
+	DCC_MASK	= 1,1,0,0,0,0,0,0
+	# Module address
+	CMD		= #02\r
+	# Module setup parameters
+	MSP		= 3 2 0 0 13 0 2  1 2 0 0 0 0 0 0
+	MCP		= 1 1 3 0  5 5 15 0 0 0 0 0
+	# Emulation value
+	Emulation	= 0.6 .7
+	AVGTYPE		= 1 1 0
+	SECSTOAVG	= 60.0
+	# A/D Calibration
+	ADCAL		= 1.0 ,0.0
+	# Corrections RH
+	COR		= 7.36759814E+0 9.49559842E+1 6.44723401E-1
+	# Corrections RT
+	COR2		= 1.20541124E+2 -5.23616930E+1
+
+
+[IST01]
+	SENSOR		= CTD Depth
+	MODEL		= SBE11
+	SERIAL		= XXXX
+	MFG		= Seabird
+	CAL_LAB		= n/a
+	CAL_DATE	= n/a
+	LOCATION	= 01 Lab
+	OWNER		= SIO/STS
+	## CTD Depth, Rate of descent, Altimeter
+	TAGS-C		= IP, IV, IA
+	TAGS-R		= IP, IV, IA
+	PRC-C		= 2, 4, 1
+	PRC-R		= 2, 4, 1
+	RANGE		= -10.0 15000.0
+	RANGE2		= -200.0 200.0
+	RANGE3		= -10.0 500.0
+	## Module setup parameters
+	MSP		= 13 3 0 0 10 0 3  1 2 3 4 5 0 0 0
+	MCP		= 0 1 3 0  0 3 0 0 0 0 0 0
+	AVGTYPE		= 0 1 0
+	SECSTOAVG	= 10.0
+	## Emulation Value
+	## Depth, Speed, Altimeter
+	Emulation	= 1500.0 0.95 45.0
+	## A/D Calibration
+	ADCAL		= 1.0 0.0
+	## Corrections
+	COR		= 0.0 0.0
+	COR2		= 60.0 0.0
+	COR3		= 0.0 0.0
+
+[LWR21]
+	SENSOR		= Long Wave Radiation
+	MODEL		= PIR
+	SERIAL		= 26408F3
+	MFG		= Eppley Labs
+	CAL_LAB		= Eppley
+	CAL_DATE	= 24-April-2023
+	LOCATION	= Top Bridge 31' above MWL
+	OWNER		= SIO/STS
+	INSTALL_DATE	= 02 May 2023
+	DCC		= TRUE
+	DCC_MASK	= 0,0,0,1,0,0,0,0
+	SAMOS_LD	= T
+	UCR_RANGE= 0.1 5.0
+	UCR_RANGE2= 0.1 5.0
+	UCR_RANGE3= -10.0 10.0
+	# ADAM 4118 0-15mV Thermopile CH1, 0-2.5VDC Dome CH4, Body CH5
+	CMD		= #04\r
+	# Module Setup Parameters
+	MSP		= 3 2 0 0 13 0 3  4 5 2 0 0 0 0 0
+	MCP		= 1 0 4 0  9 9 3 8 0 0 0 0
+	# Emulation values
+	Emulation	= 0.7568 0.7568, 0.1147
+	# A/D Calibration
+	ADCAL		= 1.0 0.0
+	# Dome, Body, Thermopile
+	#  Corrections for Dome Glass Temp sensor
+	COR		= 5.0, 82500, 0.0010295, 0.0002391, 1.568e-7, 1.0, 0.0
+	#  Corrections for Body Temp sensor
+	COR2		= 5.0, 82500, 0.0010295, 0.0002391, 1.568e-7, 1.0, 0.0
+	# Eppley correction factors
+	#  Thermopile Slope Offset (in uV)
+	COR3		= 1000.0, 0.0
+	#  Eppley factor, Stefan-Boltzman Const, absorption/dome glass IR
+	#   Cal Factor  Volts/WattsMeter -2
+	COR4		= 4.28e-6
+
+[NME01]
+	SENSOR		= GPS
+	MODEL		= GP170D
+	SERIAL		= 6452-6154
+	MFG		= Furuno
+	CAL_LAB		= n/a
+	CAL_DATE	= n/a
+	LOCATION	= Bridge
+	INSTALL_DATE	= 2017-07-18
+	OWNER		= Sproul
+	DCC		= FALSE
+	SAMOS_LD        = R
+        DCC_MASK        = 1,1,0,1,1,0,0,0
+        ## Module setup parameters
+        #        MSP             = 6 8
+        #                ## Emulation Value
+        #                        Emulation       = 32.3456 -117.5678 4000.0 90.0 12.0 1018724200.0 25.0 208.0
+        #
+	DCC_MASK	= 1,1,0,1,1,0,0,0
+	## Module setup parameters
+	MSP		= 6 8
+	## Emulation Value
+	Emulation	= 32.3456 -117.5678 4000.0 90.0 12.0 1018724200.0 25.0 208.0
+
+[NME02]
+        SENSOR          = GPS
+        MODEL           = GP170D-2
+        SERIAL          = 6445-3531
+        MFG             = Furuno
+        CAL_LAB         = n/a
+        CAL_DATE        = n/a
+        LOCATION        = Bridge
+        INSTALL_DATE    = ???
+        OWNER           = Sproul
+        DCC             = FALSE
+        SAMOS_LD        = R
+        DCC_MASK        = 1,1,0,1,1,0,0,0
+        ## Module setup parameters
+        MSP             = 10 8
+        ## Emulation Value
+        Emulation       = 32.3456 -117.5678 4000.0 90.0 12.0 1018724200.0 25.0 208.0
+
+[NME05]
+	SENSOR		= GPS
+	MODEL		= BX992
+	SERIAL		= 6102C01131 # 10.110.148.63
+	MFG		= Trimble
+	CAL_LAB		= n/a
+	CAL_DATE	= n/a
+	LOCATION	= 01 Van Top
+	INSTALL_DATE	= 2023-01 
+	OWNER		= STS
+	DCC		= FALSE
+	SAMOS_LD	= D
+	DCC_MASK	= 1,1,0,1,1,0,0,0
+## Module setup parameters
+	MSP		= 69 14
+	## Emulation Value
+	Emulation	= 32.3456 -117.5678 4000.0 90.0 12.0 1018724200.0 25.0 208.0
+
+[PAR08]
+	SENSOR		= Surface PAR
+	MODEL		= QSR-2200
+	SERIAL		= 20270
+	MFG		= Biospherical Instruments
+	CAL_LAB		= Biospherical Instruments
+	CAL_DATE	= 07-Mar-2024
+	LOCATION	= Top Bridge 31' above MWL
+	INSTALL_DATE	= 18-Apr-2024
+	OWNER		= SIO/STS
+	DCC		= TRUE
+	SAMOS_LD	= T
+	CMD		= #02\r
+	PRC-C		= 2
+	PRC-R		= 3
+	## Module setup parameters
+	MSP		= 3 2 0 0 13 0 1  8 0 0 0 0 0 0 0
+	MCP		= 1 1 1 3  13 0 0 0 0 0 0 0
+	## Emulation value
+	Emulation	= 1.5
+	AVGTYPE		= 1
+	SECSTOAVG	= 30.0
+	## A/D Calibration
+	ADCAL		= 1.0, 0.0
+	## Corrections Surface PAR V/(MicroEinsteins/sec/cm2)
+	## Slope, Offset, scale
+	COR		= 1836.612, 0.0
+
+[PRC04]
+	SENSOR		= Precipitation
+	MODEL		= 50202
+	SERIAL		= 1300
+	MFG		= RM Young
+	CAL_LAB		= STS
+	CAL_DATE	= 22-FEB-2024
+	LOCATION	= Top Bridge 33'above MWL
+	OWNER		= SIO/STS
+	INSTALL_DATE	= 18-Apr-2024
+	DCC		= TRUE
+	SAMOS_LD	= T
+	# AD Volts Module DGH D5132
+	CMD		= #02\r
+	# Module setup parameters
+	MSP		= 3 2 0 0 13 0 1  6 0 0 0 0 0 0 0
+	MCP		= 1 1 1 0  13 0 0 0 0 0 0 0
+	UCR_RANGE	= -1.0, 10.0
+	# Emulation value
+	# mm/min, mm/hr, mm
+	Emulation	= 2000.0
+	# A/D Calibration
+	ADCAL		= 1.0 0.0
+	# Corrections
+	COR		= 1.01839092E+1  -1.31244399E+0
+
+[SND01]
+	SENSOR		= Depth
+	MODEL		= 3260
+	SERIAL		= K2K-10-0585
+	MFG		= Knudsen
+	LOCATION	= Lab Van
+	OWNER		= SIO/STS
+	CMD 		= PKEL
+	DCC		= FALSE
+	SAMOS_LD	= C
+	DCC_MASK	= 1,0,0,0,0,0,0,0
+	# Module setup parameters	 
+	MSP		= 67 14
+	MCP		= 1 1 3 0  1 0 0 0 0 0 0 0
+	# Emulation Value	 
+	Emulation	= 1550.0 1600 1700
+	# A/D Calibration	 
+	ADCAL		= 1.0 0.0
+	# Corrections	 
+	COR		= 0.0, 0.0
+
+[PDR02]
+	SENSOR		= Depth
+	MODEL		= FCV-382
+	SERIAL		= 8770-1345
+	MFG		= Furuno
+	LOCATION	= Bridge
+	OWNER		= Sproul
+	DCC		= FALSE
+	SAMOS_LD	= C
+	DCC_MASK	= 1,0,0,0,0,0,0,0
+	# Module setup parameters	 
+	MSP		= 22 8
+	MCP		= 1 1 1 0  1 0 0 0 0 0 0 0
+	# Emulation Value	 
+	Emulation	= 1700
+	# A/D Calibration	 
+	ADCAL		= 1.0 0.0
+	# Corrections	 
+	COR		= 0.0, 0.0
+
+
+[SST33]
+	SENSOR		= Sea Surface Temperature
+	MODEL		= SEG14
+	SERIAL		= 5152
+	MFG		= STS/SEG
+	CAL_LAB		= STS
+	CAL_DATE	= 21-Apr-2022
+	LOCATION	= Hull-2nd platform(ADCP void)
+	OWNER		= SIO/STS
+	INSTALL_DATE	= 03-May-2022
+	DCC		= TRUE
+	SAMOS_LD	= E
+	CMD		= #1\r
+	# DGH  D1452
+	# Module setup parameters
+	MSP		= 17 1 0 0 10 0 1  1 0 0 0 0 0 0 0
+	MCP		= 1 1 1 0  13 0 0 0 0 0 0 0
+	# Emulation value 10.352
+	Emulation	= 20.0
+	AVGTYPE		= 1
+	SECSTOAVG	= 60.0
+	# A/D Calibration
+	ADCAL		= 1.0 0.0
+	# Sensor Corrections  (slope, offset)
+	COR		= 1.00111346E+0, -8.40852701E-2
+
+[SWR21]
+	SENSOR		= Short Wave Radiation
+	MODEL		= SPP
+	SERIAL		= 38228F3
+	MFG		= Eppley Labs
+	CAL_LAB		= Eppley
+	CAL_DATE	= 24-April-2023
+	LOCATION	= Top Bridge 31' above MWL 
+	OWNER		= SIO/STS
+	INSTALL_DATE	= 02 May 2023
+	DCC		= TRUE
+	SAMOS_LD	= T 
+	UCR_RANGE = -1.0 100.0
+	# ADAM 4118 0-100mV CH2
+	# Module address
+	CMD		= #04\r
+	PRC-C		= 2
+	PRC-R		= 3
+	# Module Setup Parameters
+	MSP		= 3 2 0 0 13 0 1 3 0 0 0 0 0 0 0
+	MCP		= 1 1 1 3 26 0 0 0 0 0 0 0
+	# Emulation value
+	Emulation	= 1.5
+	# A/D Calibration
+	ADCAL		= 1.0 0.0
+	# Slope, Offset, Cal Factor
+	COR		= 1e-3, 0.0, 8.63e-6
+
+
+[TMP73]
+	SENSOR		= Air Temperature
+	MODEL		= 41342VC
+	SERIAL		= 35606
+	MFG		= RM Young
+	CAL_LAB		= STS
+	CAL_DATE	= 27-Sept-2023
+	LOCATION	= Top Bridge 33'above MWL
+	INSTALL_DATE	= 18-APR-2024
+	OWNER		= SIO/STS
+	DCC		= TRUE
+	SAMOS_LD	= T
+	# Module address
+	CMD		= #02\r
+	# Module setup parameters
+	MSP		= 3 2 0 0 13 0 1  5 0 0 0 0 0 0 0
+	MCP		= 1 1 1 0 13 0 0 0 0 0 0 0
+	# Emulation value 10.449
+	Emulation	= 72.6
+	AVGTYPE		= 1
+	SECSTOAVG	= 60.0
+	# A/D Calibration
+	ADCAL		= 1.0 0.0
+	# Corrections
+	 COR		= 9.99668579E+1 -4.98785470E+1
+      
+
+[TSG67]
+	SENSOR		= Thermosalinograph
+	MODEL		= SBE45
+	SERIAL		= 0082
+	MFG		= Seabird
+	CAL_LAB		= Seabird
+	CAL_DATE	= 10-Mar-2024
+	LOCATION	= Ocean Lab
+	OWNER		= SIO/STS
+	INSTALL_DATE	= 22-Apr-2024
+	DCC		= TRUE
+	SAMOS_LD	= W
+	DCC_MASK	= 1,1,1,0,0,0,0,0
+	# Module setup parameters	 
+	MSP		= 37 3 0 0 10 0 2  1 2 0 0 0 0 0 0
+	MCP		= 1 1 6 0  0 3 16 17 18 35 0 0
+	# Emulation value	 
+	EMULATION	= 20.0 5.0 
+	AVGTYPE		= 1 1 0 0 0
+	SECSTOAVG	= 60.0
+	# A/D Calibration	 
+	ADCAL		= 1.0 0.0
+	COR		= 1.0, 0.0
+	COR2		= 10.0, 0.0
+
+[OXY63]
+	SENSOR		= Oxygen
+	MODEL		= SBE-63
+	SERIAL		= 1266
+	MFG		= Seabird
+	CAL_LAB		= Seabird
+	CAL_DATE	= 19-Aug-2020
+	LOCATION	= FLO-Thru system Hydro Lab
+	INSTALL_DATE	= 18-Apr-2024
+	OWNER		= SIO/STS
+	DCC		= FALSE
+	SAMOS_LD	= W
+	TAGS-R		= OT OX
+	TAGS-C		= OT OX OS
+	DCC_MASK        = 1,1,0,0,0,0,0,0
+	## Module setup parameters
+	MSP		= 39 3 0 0 10 0 2  4 1 0 0 0 0 0 0
+	MCP		= 1 1 3 0  0 45 23 0 0 0 0 0
+	## Emulation value
+	Emulation	= 24.3279 16.443
+	SECSTOAVG	= 60.0
+	## A/D Calibration
+	ADCAL		= 1.0, 0.0
+	## Corrections Oxygen Temp
+	COR		= 1.0, 0.0
+	## Corrections Oxygen
+	COR2		= 1.0513, -1.5e-3, 3.3452e-1, -2.3775e-1, 1.5754, 9.4184e-2, 4.0714e-3, 6.2053e-5, 1.1e-2
+
+
+[FLU45]
+	SENSOR		= Fluorometer
+	MODEL		= FLUNTS
+	SERIAL		= 4403
+	MFG		= Wetlabs
+	CAL_LAB		= Wetlabs
+	CAL_DATE	= 21-Jun-2016
+	LOCATION	= FLO-Thru system Main Lab
+	INSTALL_DATE	= 08-Mar-2016
+	OWNER		= SIO/STS
+	DCC		= FALSE
+	SAMOS_LD	= W
+	TAGS-R		= FL TB
+	TAGS-C		= FL TB
+	## Range 0.0-50.0 ug/l 0-25NTU
+	## Module setup parameters
+	MSP		= 40 3 0 0 10 0 2  4 6 0 0 0 0 0 0
+	MCP		= 1 1 2 0  3 3 0 0 0 0 0 0
+	AVGTYPE		= 1
+	SECSTOAVG	= 60.0
+	## Emulation value
+	Emulation	= 53 116
+	## A/D Calibration
+	ADCAL		=1.0 , 0.0
+	## Scale, -Vblank
+	#Chlorophyll ug/l
+	COR		= 0.0121, -50.0
+	#NTU
+	COR2		= 0.0243, -50.0
+
+
+[WCH02]
+	SENSOR		= Winch Readouts
+	MODEL		= LCI90
+	SERIAL		= ??
+	MFG		= ??
+	CAL_LAB		= n/a
+	CAL_DATE	= n/a
+	LOCATION	= Main Lab
+	OWNER		= Sproul
+	# Module setup parameters
+	MSP		= 16 3 0 0 10 0 4  5 4 3 1 0 0 0 0
+#	MSP		= 16 3 0 0 10 0 4  10 6 3 1 0 0 0 0
+	MCP		= 0 1 4 0  0 0 0 0 0 0 0 0
+	# Emulation Value
+	Emulation	=  1000 20 4000 1
+	# A/D Calibration
+	ADCAL		= 1.0 0.0
+	# Corrections 
+	COR		= 1.0 0.0
+	COR2		= 1.0 0.0
+	COR3		= 1.0 0.0
+	COR4		= 1.0 0.0
+
+[WND95]
+	SENSOR		= WIND
+	MODEL		= 86106
+	SERIAL		= 1296
+	MFG		= RM Young
+	CAL_LAB		= RM Young
+	CAL_DATE	= 18-Feb-2021
+	LOCATION	= Top Bridge(STBD) 36'above MWL
+	OWNER		= SIO/STS
+	INSTALL_DATE	= 18-Apr-2024
+	DCC		= TRUE
+	SAMOS_LD	= T
+	# Module address
+	CMD		= #Z9R0\r
+	# Module setup parameters
+	MSP		= 3 0 0 0 10 0 2  4 2 0 0 0 0 0 0
+	MCP		= 1 1 4 0  0 0 19 20 0 0 0 0
+	# Emulation value
+	Emulation	= 6.0 10.0
+	AVGTYPE		= 1 2 0 0
+	SECSTOAVG	= 60.0
+	# A/D Calibration
+	ADCAL		= 1.0 0.0
+	# Corrections Wind Speed
+	COR		= 0.0, 0.0
+	# Corrections Wind Direction
+	COR2		= 1.0, 0.0
+
+[XMS76]
+        SENSOR          = Transmissometer
+        MODEL           = C-Star
+        SERIAL          = 1793PR
+        MFG             = Wetlabs
+        CAL_LAB         = Wetlabs
+        CAL_DATE        = 25-Aug-2023
+        LOCATION        = Main Lab Water Wall
+        OWNER           = SIO/STS
+        DCC             = FALSE
+        INSTALL_DATE    = 01-Nov-2023
+        ## Wetlabs Cstar
+        ## Module setup parameters
+        MSP = 35 3 0 0 10 0 1  4 0 0 0 0 0 0 0
+        MCP = 1 1 2 0  38 39 0 0 0 0 0 0
+        #MCP = 0 0 1 0 0 0 0 0 0 0 0 0
+	## Emulation value
+        Emulation       = 3.56
+        ## A/D Calibration
+        ADCAL           = 1.0, 0.0
+        ## A0, Y0, A1, Y1, W0, z -- Using digital count calibration
+        COR             = 15760, 0, 15760, 0, 15420, 0.25
+        #A0              = factory voltage output in air (factory calibration from transmissometer manufacturer)
+        #Y0              = factory dark or zero (blocked path) voltage (factory calibration from transmissometer manufacturer)
+        #A1              = current (most recent) voltage output in air
+        #Y1              = current (most recent) dark or zero (blocked path) voltage
+        #W0              = factory voltage output in pure water (factory calibration from transmissometer manufacturer)
+        #z               = Path Length in Meters
+
+
+

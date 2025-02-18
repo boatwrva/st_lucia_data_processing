@@ -1,0 +1,11 @@
+==================================================================
+======= start of report for /home/data/SP2403 =====
+==================================================================
+
+
+======= os150 settings: chunked by configuration  =========
+
+index num  startdday  enddday      BT  (ping, nbins,binsize, blank, pulse) (...)
+---- ---   --------- --------     --- 
+ 0 81    121.639546  128.189750    on   (nb, 60, 8.0, 4.0, 8.0)
+---------- end of report for /home/data/SP2403 --------------

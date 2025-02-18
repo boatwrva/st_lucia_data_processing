@@ -1,0 +1,369 @@
+2024-04-18 21:26:08,653 INFO     DAS            currents01sp 5.4.0-110-generic #124-Ubuntu SMP Thu Apr 14 19:46:19 UTC 2022 x86_64
+2024-04-18 21:26:09,611 INFO     adcpsetup      Loading SVs from defaults in adcpsetup.gui_setup.__init__.
+2024-04-18 21:26:09,613 INFO     rdi_setup      Finished gui_setup.__init__
+2024-04-18 21:26:09,628 INFO     tk_terminal    tk_terminal 21:26:09
+2024-04-18 21:26:17,507 INFO     cruisesetup    Resuming Cruise
+2024-04-18 21:26:17,565 INFO     DAS            Entering buildLoggers
+2024-04-18 21:26:17,579 INFO     DAS            Leaving buildLoggers
+2024-04-18 21:26:17,853 INFO     DAS            About to run mainloop
+2024-04-18 21:32:54,860 INFO     DAS            entering StartLogging, resume = 0, auto = False
+2024-04-18 21:32:54,881 INFO     DAS            Commands for os150:
+    CR1
+    WD 111 00 0000
+    ND 111 00 0000
+    EA04500
+    NP1
+    NN60
+    NS800
+    NF400
+    WP0
+    WN80
+    WS400
+    WF400
+    BP1
+    BX5000
+    TP00:01.10
+    CX0,0
+    PS0
+2024-04-18 21:33:08,555 INFO     DAS            Running /usr/local/currents/bin/DAS_while_logging.py
+2024-04-18 21:33:08,557 INFO     DAS            Logging started; exiting StartLogging
+2024-04-18 21:36:01,303 INFO     DAS            Entering StopLogging, auto = False
+2024-04-18 21:36:07,114 INFO     logsubs        confirm_stop returns True
+2024-04-18 21:36:07,115 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI0
+2024-04-18 21:36:07,119 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.:28063
+2024-04-18 21:36:07,120 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI2
+2024-04-18 21:36:07,120 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI4
+2024-04-18 21:36:07,125 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI5
+2024-04-18 21:36:11,950 INFO     DAS            Logging stopped; exiting StopLogging
+2024-04-18 21:36:32,698 INFO     DAS            entering StartLogging, resume = 0, auto = False
+2024-04-18 21:36:32,717 INFO     DAS            Commands for os150:
+    CR1
+    WD 111 00 0000
+    ND 111 00 0000
+    EA04500
+    NP0
+    NN60
+    NS800
+    NF400
+    WP1
+    WN80
+    WS400
+    WF400
+    BP1
+    BX5000
+    TP00:01.10
+    CX0,0
+    PS0
+2024-04-18 21:36:44,674 INFO     DAS            Running /usr/local/currents/bin/DAS_while_logging.py
+2024-04-18 21:36:44,675 INFO     DAS            Logging started; exiting StartLogging
+2024-04-18 21:43:46,019 INFO     DAS            Entering StopLogging, auto = False
+2024-04-18 21:43:47,845 INFO     logsubs        confirm_stop returns True
+2024-04-18 21:43:47,846 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI0
+2024-04-18 21:43:47,847 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.:28063
+2024-04-18 21:43:47,848 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI2
+2024-04-18 21:43:47,848 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI4
+2024-04-18 21:43:47,849 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI5
+2024-04-18 21:43:53,008 INFO     DAS            Logging stopped; exiting StopLogging
+2024-04-19 22:05:47,651 INFO     cruisesetup    EndCruise, cruiseid is test_1
+2024-04-20 14:08:48,601 INFO     cruisesetup    Initializing yearbase from current date: 2024
+2024-04-20 14:08:48,635 INFO     cruisesetup    adcptree.py /home/data/SP24_seatrial/proc/os150nb -d uhdas --configpath /home/data/SP24_seatrial/raw/config --cruisename SP24_seatrial
+2024-04-20 14:08:49,405 INFO     cruisesetup    making figure archive directory /home/adcp/www/figures/png_archive/os150nb:
+2024-04-20 14:08:49,406 INFO     cruisesetup    adcptree.py /home/data/SP24_seatrial/proc/os150bb -d uhdas --configpath /home/data/SP24_seatrial/raw/config --cruisename SP24_seatrial
+2024-04-20 14:08:49,867 INFO     cruisesetup    making figure archive directory /home/adcp/www/figures/png_archive/os150bb:
+2024-04-20 14:08:54,206 INFO     cruisesetup    StartCruise, new, cruiseid is SP24_seatrial
+2024-04-20 14:08:54,207 INFO     DAS            Entering buildLoggers
+2024-04-20 14:08:54,225 INFO     DAS            Leaving buildLoggers
+2024-04-20 14:08:54,226 INFO     cruisesetup    Exiting StartCruise
+2024-04-20 15:09:45,241 INFO     DAS            entering StartLogging, resume = 0, auto = False
+2024-04-20 15:09:45,261 INFO     DAS            Commands for os150:
+    CR1
+    WD 111 00 0000
+    ND 111 00 0000
+    EA04500
+    NP1
+    NN60
+    NS800
+    NF400
+    WP0
+    WN80
+    WS400
+    WF400
+    BP1
+    BX5000
+    TP00:01.10
+    CX0,0
+    PS0
+2024-04-20 15:09:56,785 ERROR    DAS            term 0 ADCP os150 startup failure
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/uhdas-0.0.0-py3.8.egg/uhdas/uhdas/DAS.py", line 292, in StartLogging
+    term.start_binary(cmdlist)
+  File "/usr/local/lib/python3.8/dist-packages/uhdas-0.0.0-py3.8.egg/uhdas/serial/oswh_term.py", line 241, in start_binary
+    self.wakeup()
+  File "/usr/local/lib/python3.8/dist-packages/uhdas-0.0.0-py3.8.egg/uhdas/serial/oswh_term.py", line 162, in wakeup
+    self.slow_wakeup()
+  File "/usr/local/lib/python3.8/dist-packages/uhdas-0.0.0-py3.8.egg/uhdas/serial/oswh_term.py", line 133, in slow_wakeup
+    self.waitfor(b'>', timeout=3, quiet=0.5)
+  File "/usr/local/lib/python3.8/dist-packages/uhdas-0.0.0-py3.8.egg/uhdas/serial/tk_terminal.py", line 284, in waitfor
+    raise Timeout
+uhdas.serial.tk_terminal.Timeout
+2024-04-20 15:10:23,053 INFO     DAS            entering StartLogging, resume = 0, auto = False
+2024-04-20 15:10:23,070 INFO     DAS            Commands for os150:
+    CR1
+    WD 111 00 0000
+    ND 111 00 0000
+    EA04500
+    NP1
+    NN60
+    NS800
+    NF400
+    WP1
+    WN80
+    WS400
+    WF400
+    BP1
+    BX5000
+    TP00:01.10
+    CX0,0
+    PS0
+2024-04-20 15:10:35,010 INFO     DAS            Running /usr/local/currents/bin/DAS_while_logging.py
+2024-04-20 15:10:35,013 INFO     DAS            Logging started; exiting StartLogging
+2024-04-20 19:53:17,215 INFO     DAS            Entering StopLogging, auto = False
+2024-04-20 19:53:19,939 INFO     logsubs        confirm_stop returns True
+2024-04-20 19:53:19,940 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI0
+2024-04-20 19:53:19,941 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.:28063
+2024-04-20 19:53:19,941 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI2
+2024-04-20 19:53:19,942 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI5
+2024-04-20 19:53:24,589 INFO     DAS            Logging stopped; exiting StopLogging
+2024-04-20 19:53:53,459 INFO     DAS            entering StartLogging, resume = 0, auto = False
+2024-04-20 19:53:53,476 INFO     DAS            Commands for os150:
+    CR1
+    WD 111 00 0000
+    ND 111 00 0000
+    EA04500
+    NP1
+    NN60
+    NS800
+    NF400
+    WP1
+    WN80
+    WS400
+    WF400
+    BP1
+    BX5000
+    TP00:01.10
+    CX0,0
+    PS0
+2024-04-20 19:54:05,531 INFO     DAS            Running /usr/local/currents/bin/DAS_while_logging.py
+2024-04-20 19:54:05,532 INFO     DAS            Logging started; exiting StartLogging
+2024-04-20 19:54:17,527 INFO     DAS            Entering StopLogging, auto = False
+2024-04-20 19:54:19,482 INFO     logsubs        confirm_stop returns True
+2024-04-20 19:54:19,484 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI0
+2024-04-20 19:54:19,485 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.:28063
+2024-04-20 19:54:19,489 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI2
+2024-04-20 19:54:19,490 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI4
+2024-04-20 19:54:19,490 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI5
+2024-04-20 19:54:24,625 INFO     DAS            Logging stopped; exiting StopLogging
+2024-04-20 19:54:46,255 INFO     cruisesetup    EndCruise, cruiseid is SP24_seatrial
+2024-04-25 15:16:59,574 INFO     cruisesetup    Initializing yearbase from current date: 2024
+2024-04-25 15:16:59,800 INFO     cruisesetup    adcptree.py /home/data/SP2401/proc/os150nb -d uhdas --configpath /home/data/SP2401/raw/config --cruisename SP2401
+2024-04-25 15:17:00,735 INFO     cruisesetup    making figure archive directory /home/adcp/www/figures/png_archive/os150nb:
+2024-04-25 15:17:00,736 INFO     cruisesetup    adcptree.py /home/data/SP2401/proc/os150bb -d uhdas --configpath /home/data/SP2401/raw/config --cruisename SP2401
+2024-04-25 15:17:00,947 INFO     cruisesetup    making figure archive directory /home/adcp/www/figures/png_archive/os150bb:
+2024-04-25 15:17:06,380 INFO     cruisesetup    StartCruise, new, cruiseid is SP2401
+2024-04-25 15:17:06,385 INFO     DAS            Entering buildLoggers
+2024-04-25 15:17:06,401 INFO     DAS            Leaving buildLoggers
+2024-04-25 15:17:06,402 INFO     cruisesetup    Exiting StartCruise
+2024-04-25 15:17:09,124 INFO     DAS            entering StartLogging, resume = 0, auto = False
+2024-04-25 15:17:09,138 INFO     DAS            Commands for os150:
+    CR1
+    WD 111 00 0000
+    ND 111 00 0000
+    EA04500
+    NP1
+    NN60
+    NS800
+    NF400
+    WP0
+    WN80
+    WS400
+    WF400
+    BP1
+    BX5000
+    TP00:01.10
+    CX0,0
+    PS0
+2024-04-25 15:17:19,776 INFO     DAS            Running /usr/local/currents/bin/DAS_while_logging.py
+2024-04-25 15:17:19,778 INFO     DAS            Logging started; exiting StartLogging
+2024-04-25 17:51:07,543 INFO     DAS            Entering StopLogging, auto = False
+2024-04-25 17:51:10,075 INFO     logsubs        confirm_stop returns True
+2024-04-25 17:51:10,076 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI0
+2024-04-25 17:51:10,081 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.:28063
+2024-04-25 17:51:10,082 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI2
+2024-04-25 17:51:10,086 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI4
+2024-04-25 17:51:10,086 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI5
+2024-04-25 17:51:14,647 INFO     DAS            Logging stopped; exiting StopLogging
+2024-04-25 18:11:11,405 INFO     DAS            entering StartLogging, resume = 0, auto = False
+2024-04-25 18:11:11,427 INFO     DAS            Commands for os150:
+    CR1
+    WD 111 00 0000
+    ND 111 00 0000
+    EA04500
+    NP1
+    NN60
+    NS800
+    NF400
+    WP0
+    WN80
+    WS400
+    WF400
+    BP1
+    BX5000
+    TP00:01.10
+    CX0,0
+    PS0
+2024-04-25 18:11:23,316 INFO     DAS            Running /usr/local/currents/bin/DAS_while_logging.py
+2024-04-25 18:11:23,317 INFO     DAS            Logging started; exiting StartLogging
+2024-04-25 23:25:12,402 INFO     DAS            Entering StopLogging, auto = False
+2024-04-25 23:25:15,157 INFO     logsubs        confirm_stop returns True
+2024-04-25 23:25:15,158 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI0
+2024-04-25 23:25:15,162 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.:28063
+2024-04-25 23:25:15,163 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI2
+2024-04-25 23:25:15,163 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI4
+2024-04-25 23:25:15,168 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI5
+2024-04-25 23:25:19,765 INFO     DAS            Logging stopped; exiting StopLogging
+2024-04-25 23:25:26,591 INFO     cruisesetup    EndCruise, cruiseid is SP2401
+2024-04-28 15:22:27,424 INFO     cruisesetup    Initializing yearbase from current date: 2024
+2024-04-28 15:22:27,708 INFO     cruisesetup    adcptree.py /home/data/SP2402/proc/os150nb -d uhdas --configpath /home/data/SP2402/raw/config --cruisename SP2402
+2024-04-28 15:22:27,929 INFO     cruisesetup    making figure archive directory /home/adcp/www/figures/png_archive/os150nb:
+2024-04-28 15:22:27,930 INFO     cruisesetup    adcptree.py /home/data/SP2402/proc/os150bb -d uhdas --configpath /home/data/SP2402/raw/config --cruisename SP2402
+2024-04-28 15:22:28,159 INFO     cruisesetup    making figure archive directory /home/adcp/www/figures/png_archive/os150bb:
+2024-04-28 15:22:32,099 INFO     cruisesetup    StartCruise, new, cruiseid is SP2402
+2024-04-28 15:22:32,100 INFO     DAS            Entering buildLoggers
+2024-04-28 15:22:32,111 INFO     DAS            Leaving buildLoggers
+2024-04-28 15:22:32,112 INFO     cruisesetup    Exiting StartCruise
+2024-04-28 15:22:38,998 INFO     DAS            entering StartLogging, resume = 0, auto = False
+2024-04-28 15:22:39,014 INFO     DAS            Commands for os150:
+    CR1
+    WD 111 00 0000
+    ND 111 00 0000
+    EA04500
+    NP1
+    NN60
+    NS800
+    NF400
+    WP0
+    WN80
+    WS400
+    WF400
+    BP1
+    BX5000
+    TP00:01.10
+    CX0,0
+    PS0
+2024-04-28 15:22:49,542 INFO     DAS            Running /usr/local/currents/bin/DAS_while_logging.py
+2024-04-28 15:22:49,544 INFO     DAS            Logging started; exiting StartLogging
+2024-04-29 01:38:50,444 INFO     DAS            Entering StopLogging, auto = False
+2024-04-29 01:38:55,200 INFO     logsubs        confirm_stop returns True
+2024-04-29 01:38:55,202 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI0
+2024-04-29 01:38:55,208 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.:28063
+2024-04-29 01:38:55,209 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI2
+2024-04-29 01:38:55,210 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI4
+2024-04-29 01:38:55,213 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI5
+2024-04-29 01:38:59,216 INFO     DAS            Logging stopped; exiting StopLogging
+2024-04-29 01:39:07,853 INFO     cruisesetup    EndCruise, cruiseid is SP2402
+2024-04-30 21:50:42,211 INFO     cruisesetup    Initializing yearbase from current date: 2024
+2024-04-30 21:50:42,251 INFO     cruisesetup    adcptree.py /home/data/SP2403/proc/os150nb -d uhdas --configpath /home/data/SP2403/raw/config --cruisename SP2403
+2024-04-30 21:50:42,472 INFO     cruisesetup    making figure archive directory /home/adcp/www/figures/png_archive/os150nb:
+2024-04-30 21:50:42,472 INFO     cruisesetup    adcptree.py /home/data/SP2403/proc/os150bb -d uhdas --configpath /home/data/SP2403/raw/config --cruisename SP2403
+2024-04-30 21:50:42,669 INFO     cruisesetup    making figure archive directory /home/adcp/www/figures/png_archive/os150bb:
+2024-04-30 21:50:47,307 INFO     cruisesetup    StartCruise, new, cruiseid is SP2403
+2024-04-30 21:50:47,319 INFO     DAS            Entering buildLoggers
+2024-04-30 21:50:47,337 INFO     DAS            Leaving buildLoggers
+2024-04-30 21:50:47,338 INFO     cruisesetup    Exiting StartCruise
+2024-05-01 15:20:44,295 INFO     DAS            entering StartLogging, resume = 0, auto = False
+2024-05-01 15:20:44,314 INFO     DAS            Commands for os150:
+    CR1
+    WD 111 00 0000
+    ND 111 00 0000
+    EA04500
+    NP1
+    NN60
+    NS800
+    NF400
+    WP0
+    WN80
+    WS400
+    WF400
+    BP1
+    BX5000
+    TP00:01.10
+    CX0,0
+    PS0
+2024-05-01 15:20:55,412 INFO     DAS            Running /usr/local/currents/bin/DAS_while_logging.py
+2024-05-01 15:20:55,415 INFO     DAS            Logging started; exiting StartLogging
+2024-05-02 16:00:23,046 INFO     DAS            Entering StopLogging, auto = False
+2024-05-02 16:00:27,836 INFO     logsubs        confirm_stop returns True
+2024-05-02 16:00:27,839 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI0
+2024-05-02 16:00:27,842 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.:28063
+2024-05-02 16:00:27,845 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI2
+2024-05-02 16:00:27,850 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI4
+2024-05-02 16:00:27,850 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI5
+2024-05-02 16:00:32,628 INFO     DAS            Logging stopped; exiting StopLogging
+2024-05-02 16:00:48,443 INFO     DAS            entering StartLogging, resume = 0, auto = False
+2024-05-02 16:00:48,457 INFO     DAS            Commands for os150:
+    CR1
+    WD 111 00 0000
+    ND 111 00 0000
+    EA04500
+    NP1
+    NN60
+    NS800
+    NF400
+    WP0
+    WN80
+    WS400
+    WF400
+    BP1
+    BX5000
+    TP00:01.10
+    CX0,0
+    PS0
+2024-05-02 16:01:00,529 INFO     DAS            Running /usr/local/currents/bin/DAS_while_logging.py
+2024-05-02 16:01:00,530 INFO     DAS            Logging started; exiting StartLogging
+2024-05-02 16:48:12,723 INFO     DAS            Entering StopLogging, auto = False
+2024-05-02 16:48:14,996 INFO     logsubs        confirm_stop returns True
+2024-05-02 16:48:14,997 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI0
+2024-05-02 16:48:14,998 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.:28063
+2024-05-02 16:48:14,998 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI2
+2024-05-02 16:48:14,999 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI4
+2024-05-02 16:48:15,000 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI5
+2024-05-02 16:48:19,480 INFO     DAS            Logging stopped; exiting StopLogging
+2024-05-02 16:49:28,142 INFO     DAS            entering StartLogging, resume = 0, auto = False
+2024-05-02 16:49:28,159 INFO     DAS            Commands for os150:
+    CR1
+    WD 111 00 0000
+    ND 111 00 0000
+    EA04500
+    NP1
+    NN60
+    NS800
+    NF400
+    WP0
+    WN80
+    WS400
+    WF400
+    BP1
+    BX5000
+    TP00:01.10
+    CX0,0
+    PS0
+2024-05-02 16:49:40,208 INFO     DAS            Running /usr/local/currents/bin/DAS_while_logging.py
+2024-05-02 16:49:40,209 INFO     DAS            Logging started; exiting StartLogging
+2024-05-02 17:16:08,341 INFO     DAS            Entering StopLogging, auto = False
+2024-05-02 17:16:09,747 INFO     logsubs        confirm_stop returns True
+2024-05-02 17:16:09,748 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI0
+2024-05-02 17:16:09,749 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.:28063
+2024-05-02 17:16:09,751 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI2
+2024-05-02 17:16:09,752 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI4
+2024-05-02 17:16:09,753 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.ttySI5
+2024-05-02 17:16:14,427 INFO     DAS            Logging stopped; exiting StopLogging

@@ -1,0 +1,22 @@
+
+           dbname:             ../adcpdb/a_sp
+           output:             a_sp
+           step_size:          1
+           ndepth:             20
+           time_ranges:        separate
+           year_base=          2024
+
+           option_list:
+             pg_min=           50
+           navigation:
+             reference_bins  2  to   20
+             end
+           statistics:       mean
+             units=          0.01       /* cm/s instead of default m/s */
+             end
+           flag_mask:        ALL_BITS
+             end
+           end
+          2024/05/01  15:23:53 to 2024/05/08  04:32:40                 /* the whole time range */
+
+     

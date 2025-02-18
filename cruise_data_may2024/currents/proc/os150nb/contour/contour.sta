@@ -1,0 +1,16 @@
+
+ADCPSECT  Wed May  8 04:32:56 2024
+
+ dbname: ../adcpdb/a_sp
+ output: ./contour
+ step_size: 1
+ ndepth: 128
+ time_ranges: separate
+ year_base= 2024
+
+
+ option_list:
+    average    depth
+No reference layer removed.
+ minimum AGC counts above noise floor = 0
+ Elapsed time: 0:00 (min:sec)

@@ -1,0 +1,37 @@
+==================================================================
+======= start of report for /home/data/SP2403 =====
+==================================================================
+
+------raw-------
+
+raw:              bx992     85 files  (sp2024_121_55254 - sp2024_128_14400)
+raw:             gp170a     78 files  (sp2024_121_55254 - sp2024_128_14400)
+raw:             gp170b     78 files  (sp2024_121_55254 - sp2024_128_14400)
+raw:            gpshead     81 files  (sp2024_121_55254 - sp2024_128_14400)
+
+adcp:  os150            .raw    81 files  (sp2024_121_55254 - sp2024_128_14400)
+adcp:  os150        .raw.log    81 files  (sp2024_121_55254 - sp2024_128_14400)
+adcp:  os150    .raw.log.bin    81 files  (sp2024_121_55254 - sp2024_128_14400)
+
+-----rbin-------
+
+rbin:                bx992:gph     85 files  (sp2024_121_55254 - sp2024_128_14400)
+rbin:                bx992:gps     85 files  (sp2024_121_55254 - sp2024_128_14400)
+rbin:               gp170a:gps     78 files  (sp2024_121_55254 - sp2024_128_14400)
+rbin:               gp170b:gps     78 files  (sp2024_121_55254 - sp2024_128_14400)
+rbin:              gpshead:gph     81 files  (sp2024_121_55254 - sp2024_128_14400)
+rbin: ERROR         gp170a:gps: 7 files missing
+rbin: ERROR         gp170b:gps: 7 files missing
+rbin: ERROR         gpshead:gph missing: sp2024_126_43200
+sp2024_126_28800
+sp2024_126_50400
+sp2024_126_36000
+
+-----gbin-------
+
+gbin:      os150 (gp170b,gpshead,bx992,gp170a,time)
+
+------ database time ranges --------
+
+proc:    os150nb       121.642 - 128.189 (2024/05/01 to 2024/05/08)
+---------- end of report for /home/data/SP2403 --------------

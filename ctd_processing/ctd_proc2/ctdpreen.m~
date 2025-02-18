@@ -1,0 +1,14 @@
+  function d = ctdpreen(d)
+% function d = ctdpreen(d)
+% remove spikes in p t1 t2 t2 c1 c2 oxygen trans fl
+  
+d.p = preen(d.p, 0, 6200);
+d.t1 = preen(d.t1, 0, 27);
+d.t2 = preen(d.t2, 0, 27);
+d.c1 = preen(d.c1, 3, 5.5);
+d.c2 = preen(d.c2, 3, 5.5);
+d.oxygen = preen(d.oxygen, 100, 200);
+%d.trans = preen(d.trans, 3, 5);
+%d.fl = preen(d.fl, 3, 5);
+
+

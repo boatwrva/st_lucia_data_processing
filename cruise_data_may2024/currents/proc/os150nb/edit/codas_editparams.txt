@@ -1,0 +1,28 @@
+#this file was automatically generated. DO NOT EDIT
+#
+# written 2024/05/01 15:24:06
+
+# this file contains codas editing defaults
+
+#name, value pairs
+#--------------------
+           badpgrefl   0
+     badpgrefl_nbins   0
+ bigtarget_ampthresh   500
+bigtarget_lgb_margin   0
+        e_std_cutoff   1000
+             ecutoff   1000
+       jitter_cutoff   500
+      maxpgbin_fudge   100
+          numfriends   0
+            numpings   0
+           onstation   100
+            pgcutoff   0
+         refl_endbin   20
+       refl_startbin   2
+     resid_stats_fwd   5000
+    shipspeed_cutoff   100
+         trimtopbins   0
+             wcutoff   1000
+        wire_ecutoff   120
+        wire_lastbin   20

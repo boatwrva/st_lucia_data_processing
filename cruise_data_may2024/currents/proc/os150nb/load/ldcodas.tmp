@@ -1,0 +1,9 @@
+
+        DATABASE_NAME:   ../adcpdb/a_sp
+        DEFINITION_FILE: vmadcp.def
+        LOG_FILE:  load.log
+        YEAR_BASE: 2024
+        cmd_file_list          /* use only if specifying cmd paths, not "@" */
+        END
+
+     ./ens_blk011.cmd

@@ -1,0 +1,21 @@
+#this file was automatically generated. DO NOT EDIT
+#
+# written 2024/05/01 15:24:06
+
+# this file contains codas singleping editing defaults
+
+#name, value pairs
+#--------------------
+             ampfilt   40
+ bigtarget_ampthresh   55
+bigtarget_lgb_margin   0.5
+bigtarget_mab_window   11
+          cor_cutoff   120
+        e_std_cutoff   0.5
+             ecutoff   0.8
+    max_search_depth   1000
+    refavg_valcutoff   1
+           rl_endbin   20
+         rl_startbin   2
+   w_diff_std_cutoff   1
+    weakprof_percent   30

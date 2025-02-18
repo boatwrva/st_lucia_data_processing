@@ -1,0 +1,13 @@
+2024-04-20 15:09:56,785 ERROR    DAS            term 0 ADCP os150 startup failure
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/uhdas-0.0.0-py3.8.egg/uhdas/uhdas/DAS.py", line 292, in StartLogging
+    term.start_binary(cmdlist)
+  File "/usr/local/lib/python3.8/dist-packages/uhdas-0.0.0-py3.8.egg/uhdas/serial/oswh_term.py", line 241, in start_binary
+    self.wakeup()
+  File "/usr/local/lib/python3.8/dist-packages/uhdas-0.0.0-py3.8.egg/uhdas/serial/oswh_term.py", line 162, in wakeup
+    self.slow_wakeup()
+  File "/usr/local/lib/python3.8/dist-packages/uhdas-0.0.0-py3.8.egg/uhdas/serial/oswh_term.py", line 133, in slow_wakeup
+    self.waitfor(b'>', timeout=3, quiet=0.5)
+  File "/usr/local/lib/python3.8/dist-packages/uhdas-0.0.0-py3.8.egg/uhdas/serial/tk_terminal.py", line 284, in waitfor
+    raise Timeout
+uhdas.serial.tk_terminal.Timeout

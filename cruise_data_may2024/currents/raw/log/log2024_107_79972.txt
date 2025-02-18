@@ -1,0 +1,73 @@
+2024-04-17 22:12:52,787 INFO     DAS            currents01sp 5.4.0-110-generic #124-Ubuntu SMP Thu Apr 14 19:46:19 UTC 2022 x86_64
+2024-04-17 22:12:52,968 INFO     adcpsetup      Loading SVs from defaults in adcpsetup.gui_setup.__init__.
+2024-04-17 22:12:52,969 INFO     rdi_setup      Finished gui_setup.__init__
+2024-04-17 22:12:52,972 INFO     tk_terminal    tk_terminal 22:12:52
+2024-04-17 22:12:53,029 INFO     DAS            About to run mainloop
+2024-04-17 22:13:11,988 INFO     cruisesetup    Initializing yearbase from current date: 2024
+2024-04-17 22:13:12,162 INFO     cruisesetup    adcptree.py /home/data/test_1/proc/os150nb -d uhdas --configpath /home/data/test_1/raw/config --cruisename test_1
+2024-04-17 22:13:12,934 INFO     cruisesetup    making figure archive directory /home/adcp/www/figures/png_archive/os150nb:
+2024-04-17 22:13:12,934 INFO     cruisesetup    adcptree.py /home/data/test_1/proc/os150bb -d uhdas --configpath /home/data/test_1/raw/config --cruisename test_1
+2024-04-17 22:13:13,132 INFO     cruisesetup    making figure archive directory /home/adcp/www/figures/png_archive/os150bb:
+2024-04-17 22:13:19,598 INFO     cruisesetup    StartCruise, new, cruiseid is test_1
+2024-04-17 22:13:19,598 INFO     DAS            Entering buildLoggers
+2024-04-17 22:13:19,614 INFO     DAS            Leaving buildLoggers
+2024-04-17 22:13:19,616 INFO     cruisesetup    Exiting StartCruise
+2024-04-17 22:13:50,107 INFO     DAS            entering StartLogging, resume = 0, auto = False
+2024-04-17 22:13:50,126 INFO     DAS            Commands for os150:
+    CR1
+    WD 111 00 0000
+    ND 111 00 0000
+    EA04500
+    NP0
+    NN60
+    NS800
+    NF400
+    WP0
+    WN80
+    WS400
+    WF400
+    BP0
+    BX5000
+    TP00:01.10
+    CX0,0
+    PS0
+2024-04-17 22:13:52,339 ERROR    logsubs        In start_logging
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/uhdas-0.0.0-py3.8.egg/uhdas/serial/logsubs.py", line 625, in start_logging
+    self.logproc.new_connection(start_time)
+  File "/usr/local/lib/python3.8/dist-packages/uhdas-0.0.0-py3.8.egg/uhdas/serial/logsubs.py", line 221, in new_connection
+    raise SystemCommandError(msg1 + msg2 + msg3)
+uhdas.serial.logsubs.SystemCommandError: Error in new_connection: /usr/local/bin/ser_asc failed to start.
+Command: /usr/local/bin/ser_asc -y 2024 -P ttySI2 -b 4800 -d /home/data/test_1/raw/gpshead -i /tmp/SerialLogger/inpipe.ttySI2 -o /tmp/SerialLogger/outpipe.ttySI2  -T 1713392030   -F -m 1 -H 2  -f sp -e hdg -Y2 -c '$GPHDT' '$GPRMC' 2> /tmp/stderr.ttySI2 &
+ERROR: Can't open serial port: /dev/ttySI2.
+
+2024-04-17 22:13:54,410 ERROR    logsubs        In start_logging
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/uhdas-0.0.0-py3.8.egg/uhdas/serial/logsubs.py", line 625, in start_logging
+    self.logproc.new_connection(start_time)
+  File "/usr/local/lib/python3.8/dist-packages/uhdas-0.0.0-py3.8.egg/uhdas/serial/logsubs.py", line 221, in new_connection
+    raise SystemCommandError(msg1 + msg2 + msg3)
+uhdas.serial.logsubs.SystemCommandError: Error in new_connection: /usr/local/bin/ser_asc failed to start.
+Command: /usr/local/bin/ser_asc -y 2024 -P ttySI4 -b 4800 -d /home/data/test_1/raw/gp170a -i /tmp/SerialLogger/inpipe.ttySI4 -o /tmp/SerialLogger/outpipe.ttySI4  -T 1713392030   -F -m 1 -H 2  -f sp -e gps -Y2 -c '$GPGGA' 2> /tmp/stderr.ttySI4 &
+ERROR: Can't open serial port: /dev/ttySI4.
+
+2024-04-17 22:13:56,418 ERROR    logsubs        In start_logging
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/uhdas-0.0.0-py3.8.egg/uhdas/serial/logsubs.py", line 625, in start_logging
+    self.logproc.new_connection(start_time)
+  File "/usr/local/lib/python3.8/dist-packages/uhdas-0.0.0-py3.8.egg/uhdas/serial/logsubs.py", line 221, in new_connection
+    raise SystemCommandError(msg1 + msg2 + msg3)
+uhdas.serial.logsubs.SystemCommandError: Error in new_connection: /usr/local/bin/ser_asc failed to start.
+Command: /usr/local/bin/ser_asc -y 2024 -P ttySI5 -b 4800 -d /home/data/test_1/raw/gp170b -i /tmp/SerialLogger/inpipe.ttySI5 -o /tmp/SerialLogger/outpipe.ttySI5  -T 1713392030   -F -m 1 -H 2  -f sp -e gps -Y2 -c '$GPGGA' 2> /tmp/stderr.ttySI5 &
+ERROR: Can't open serial port: /dev/ttySI5.
+
+2024-04-17 22:13:56,435 INFO     DAS            Running /usr/local/currents/bin/DAS_while_logging.py
+2024-04-17 22:13:56,437 INFO     DAS            Logging started; exiting StartLogging
+2024-04-17 22:16:10,018 INFO     DAS            Entering StopLogging, auto = False
+2024-04-17 22:16:17,145 INFO     logsubs        confirm_stop returns True
+2024-04-17 22:16:17,146 INFO     logsubs        Wrote 'X' to /tmp/SerialLogger/inpipe.:28063
+2024-04-17 22:16:17,372 INFO     DAS            Logging stopped; exiting StopLogging
+2024-04-17 22:16:44,894 INFO     DAS            Cruise is still active
+2024-04-17 22:16:47,759 INFO     DAS            Stopping DAS_while_cruise.py
+2024-04-17 22:16:47,763 INFO     DAS            Closing DAS GUI
+2024-04-17 22:16:47,786 INFO     DAS            mainloop ended

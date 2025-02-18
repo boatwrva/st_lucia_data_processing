@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+            <html>
+            <head>
+              <meta  http-equiv="Refresh" content="120">
+              <title>SP2403 summary report</title>
+            </head>
+            <body>
+               <br>
+               <div style="text-align: center;"><big><span style="font-weight:
+                bold;"> SP2403 summary report</span>
+                </big></div>
+
+
+            <br><br>
+            
+ <!-- INDEX_LINKS --> 
+
+ <table
+          style="width: 100%; text-align: center;  vertical-align: middle;
+          background-color: rgb(251, 251,  251);"
+          border="1" cellpadding="2" cellspacing="2">
+           <tbody>
+            
+   <tr>
+    <td>
+CATEGORY
+    </td>
+    <td>
+DESCRIPTION
+    </td>
+    <td>
+FILE
+    </td>
+   </tr>
+   <tr>
+    <td>
+overview
+    </td>
+    <td>
+<a " href="./nav_plot_all_topo.png" name="">
+                  <img alt="cruise track (where UHDAS was run)"
+                   src="./nav_plot_all_topoT.png"
+                   style="border: 0px solid ;" align="middle"> </a>
+                   &nbsp <a " href="./nav_plot_all_txy.png" name="">
+                  <img alt="cruise track (where UHDAS was run)"
+                   src="./nav_plot_all_txyT.png"
+                   style="border: 0px solid ;" align="middle"> </a>
+                   &nbsp <a " href="./db_timerange.png" name="">
+                  <img alt="plot when each sonar was run"
+                   src="./db_timerangeT.png"
+                   style="border: 0px solid ;" align="middle"> </a>
+                   &nbsp
+    </td>
+    <td>
+nav_plot_all_topo.png<br> nav_plot_all_txy.png<br> db_timerange.png<br>
+    </td>
+   </tr>
+   <tr>
+    <td align="center">
+overview
+    </td>
+    <td align="left">
+<pre>
+==================================================================
+======= start of report for /home/data/SP2403 =====
+==================================================================
+
+------raw-------
+
+raw:              bx992     85 files  (sp2024_121_55254 - sp2024_128_14400)
+raw:             gp170a     78 files  (sp2024_121_55254 - sp2024_128_14400)
+raw:             gp170b     78 files  (sp2024_121_55254 - sp2024_128_14400)
+raw:            gpshead     81 files  (sp2024_121_55254 - sp2024_128_14400)
+
+adcp:  os150            .raw    81 files  (sp2024_121_55254 - sp2024_128_14400)
+adcp:  os150        .raw.log    81 files  (sp2024_121_55254 - sp2024_128_14400)
+adcp:  os150    .raw.log.bin    81 files  (sp2024_121_55254 - sp2024_128_14400)
+
+-----rbin-------
+
+rbin:                bx992:gph     85 files  (sp2024_121_55254 - sp2024_128_14400)
+rbin:                bx992:gps     85 files  (sp2024_121_55254 - sp2024_128_14400)
+rbin:               gp170a:gps     78 files  (sp2024_121_55254 - sp2024_128_14400)
+rbin:               gp170b:gps     78 files  (sp2024_121_55254 - sp2024_128_14400)
+rbin:              gpshead:gph     81 files  (sp2024_121_55254 - sp2024_128_14400)
+rbin: ERROR         gp170a:gps: 7 files missing
+rbin: ERROR         gp170b:gps: 7 files missing
+rbin: ERROR         gpshead:gph missing: sp2024_126_43200
+sp2024_126_28800
+sp2024_126_50400
+sp2024_126_36000
+
+-----gbin-------
+
+gbin:      os150 (gp170b,gpshead,bx992,gp170a,time)
+
+------ database time ranges --------
+
+proc:    os150nb       121.642 - 128.189 (2024/05/01 to 2024/05/08)
+---------- end of report for /home/data/SP2403 --------------
+
+</pre>
+    </td>
+    <td align="center">
+uhdas_overview.txt
+    </td>
+   </tr>
+   <tr>
+    <td>
+&nbsp
+    </td>
+    <td>
+&nbsp
+    </td>
+    <td>
+&nbsp
+    </td>
+   </tr>
+   <tr>
+    <td>
+processed ADCP
+    </td>
+    <td>
+<a href='os150nb_pngarchive/index.html' >  os150nb png archive from at-sea processing</a>
+    </td>
+    <td>
+os150nb_pngarchive/index.html
+    </td>
+   </tr>
+   <tr>
+    <td align="center">
+processed ADCP
+    </td>
+    <td align="left">
+<pre>
+==================================================================
+======= start of report for /home/data/SP2403 =====
+==================================================================
+==================ADCP calibrations ==================
+
+cal: os150nb   BT  unedited: 778 points
+cal: os150nb   BT  edited:   383 points, 2.0 min speed, 2.5 max dev
+cal: os150nb   BT              median     mean      std
+cal: os150nb   BT  amplitude   1.0140   1.0131   0.0135
+cal: os150nb   BT  phase       0.0622   0.0589   0.5903
+
+cal: os150nb   WT  Number of edited points:  16 out of  25
+cal: os150nb   WT              median     mean      std
+cal: os150nb   WT  amplitude   1.0165   1.0171   0.0122
+cal: os150nb   WT  phase       0.4335   0.3519   0.6137
+-------------
+
+
+
+cal: os150nb   DXDY  guessing ADCP (dx=starboard, dy=fwd) meters from GPS
+cal: os150nb   DXDY  positions from a_sp.gps
+cal: os150nb   DXDY  calculation done at 2024/05/08 04:32:55
+cal: os150nb   DXDY  xducer_dx = 3.192450
+cal: os150nb   DXDY  xducer_dy = -1.774150
+cal: os150nb   DXDY  signal = 1394.089167
+------------------------------------------
+
+cal: os150bb   BT  none
+
+cal: os150bb   WT  none
+-------------
+
+
+
+cal: os150bb   DXDY  none
+------------------------------------------
+
+---------- end of report for /home/data/SP2403 --------------
+
+</pre>
+    </td>
+    <td align="center">
+ADCP_cals.txt
+    </td>
+   </tr>
+   <tr>
+    <td>
+&nbsp
+    </td>
+    <td>
+&nbsp
+    </td>
+    <td>
+&nbsp
+    </td>
+   </tr>
+   <tr>
+    <td>
+quality
+    </td>
+    <td>
+<a " href="./os150nb_hcorr.png" name="">
+                  <img alt=" os150nb heading correction plot from ens_hcorr_gph"
+                   src="./os150nb_hcorrT.png"
+                   style="border: 0px solid ;" align="middle"> </a>
+                   &nbsp
+    </td>
+    <td>
+os150nb_hcorr.png<br>
+    </td>
+   </tr>
+   <tr>
+    <td>
+&nbsp
+    </td>
+    <td>
+&nbsp
+    </td>
+    <td>
+&nbsp
+    </td>
+   </tr>
+   <tr>
+    <td align="center">
+raw ADCP
+    </td>
+    <td align="left">
+<pre>
+==================================================================
+======= start of report for /home/data/SP2403 =====
+==================================================================
+
+
+======= os150 settings: chunked by configuration  =========
+
+index num  startdday  enddday      BT  (ping, nbins,binsize, blank, pulse) (...)
+---- ---   --------- --------     --- 
+ 0 81    121.639546  128.189750    on   (nb, 60, 8.0, 4.0, 8.0)
+---------- end of report for /home/data/SP2403 --------------
+
+</pre>
+    </td>
+    <td align="center">
+ADCP_settings.txt
+    </td>
+   </tr>
+   <tr>
+    <td>
+&nbsp
+    </td>
+    <td>
+&nbsp
+    </td>
+    <td>
+&nbsp
+    </td>
+   </tr>
+   <tr>
+    <td>
+UHDAS settings
+    </td>
+    <td>
+<a href='SP2403_proc.py.txt' >  ADCP CODAS processing settings</a>
+    </td>
+    <td>
+SP2403_proc.py.txt
+    </td>
+   </tr>
+   <tr>
+    <td>
+UHDAS settings
+    </td>
+    <td>
+<a href='SP2403_sensor.py.txt' >  UHDAS serial acquisition settings</a>
+    </td>
+    <td>
+SP2403_sensor.py.txt
+    </td>
+   </tr>
+   <tr>
+    <td>
+&nbsp
+    </td>
+    <td>
+&nbsp
+    </td>
+    <td>
+&nbsp
+    </td>
+   </tr>
+</tbody>
+</table>
+<br>
+<br>
+ <!-- INDEX_LINKS --> 
+
+</body>
+            </html>
+            

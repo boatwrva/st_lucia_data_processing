@@ -1,0 +1,102 @@
+close all; clear all
+this_stat=10;
+station_list={'temp','S4','S5','S6','S7','S8','N1','N2','N3','N2_2','N1_2'};
+ctd_casts={1,[2:26],[27:85],[86:110],[111:134],[135 137:138 140:153],[154:173],[174:199],[200:214],[215:235],[236:241]};
+station_list(this_stat)
+data.station=station_list{this_stat};
+data.cast_numbers=ctd_casts{this_stat};
+
+% decide which sensor to use in each downcast for the 'sigma', 'theta'
+% and 's' fields.
+S4_sens = ['2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2'];
+S5_sens = ['2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' ...
+	   '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' ...
+	  '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' ...
+	  '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2'];
+S6_sens = ['2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' ...
+	   '2' '2' '2' '2' '2' '2' '2' '2' '2' '2'];
+S7_sens = ['2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' ...
+	   '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2'];
+S8_sens = ['2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' ...
+	   '2' '2' '2' '2'];
+N1_sens = ['2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' ...
+	   '2' '2' '2' '2' '2'];
+N2_sens = ['1' '1' '1' '1' '1' '1' '1' '1' '1' '1' '1' '1' '1' '1' '1' ...
+	   '1' '1' '1' '1' '1' '1' '1' '1' '1' '1' '1'];
+N3_sens = ['1' '1' '1' '1' '1' '1' '1' '1' '1' '1' '1' '1' '1' '1' '1'];
+N2_2_sens = ['1' '1' '1' '1' '1' '1' '1' '1' '1' '1' '1' '1' '1' '1' '1' ...
+	   '1' '1' '1' '1' '1' '1'];
+
+data.sensor = eval([station_list{this_stat} '_sens']);
+
+data.udcast=['downcast'];  % downcast data is probably better
+data.base_path='../../ctd/processed/';
+
+data.sigma=[];
+data.t=[];
+data.c=[];
+data.s=[];
+data.oxygen=[];
+data.theta=[];
+data.trans=[];
+data.p=[];
+data.date=[];
+
+warning off
+
+big_x=[];
+max_p = 0;
+
+for a=1:length(data.cast_numbers)
+    this_cast=data.cast_numbers(a);
+    if this_cast ~= 136 && this_cast ~= 139
+      tmpfile=num2str(1000+this_cast);
+      data.filename{a}=['IWISE10_' tmpfile(2:4) '.mat'];
+      load([data.base_path data.filename{a}]);
+      datau = rmfield(datau,{'nscan'});
+      datad = rmfield(datad,{'nscan'});
+      max_p_this_cast = max(max(datad.p),max(datau.p));
+      if max_p_this_cast > max_p, max_p = max_p_this_cast; end;
+    end
+end
+
+% bin into 1dB pressure bins
+dp = 1;
+data.p = [0:dp:ceil(max_p)];
+
+for a=1:length(data.cast_numbers)
+    this_cast=data.cast_numbers(a);
+    if this_cast ~= 136 && this_cast ~= 139
+      tmpfile=num2str(1000+this_cast);
+      data.filename{a}=['IWISE10_' tmpfile(2:4) '.mat'];
+      load([data.base_path data.filename{a}]);
+
+      fields = fieldnames(datad);
+      for i = 1:length(data.p)
+	binid = find(datad.p < data.p(i)+dp/2 & datad.p > data.p(i)-dp/2);
+	biniu = find(datau.p < data.p(i)+dp/2 & datau.p > data.p(i)-dp/2);
+	for b = 1:length(fields)
+	  data.downcast.([fields{b}])(i,a) = nanmean(datad.(fields{b})(binid));
+	  data.upcast.([fields{b}])(i,a) = nanmean(datau.(fields{b})(biniu));
+	end
+      end
+
+      data.upcast.date(a) = nanmean(data.upcast.datenum(:,a));
+      data.downcast.date(a) = nanmean(data.downcast.datenum(:,a));
+      
+      % select which sensor to use for final fields. always use downcast.
+      data.sigma(:,a) = data.([data.udcast]).(['sigma' data.sensor(a)])(:,a);
+      data.theta(:,a) = data.([data.udcast]).(['theta' data.sensor(a)])(:,a);
+      data.s(:,a) = data.([data.udcast]).(['s' data.sensor(a)])(:,a);
+      data.t(:,a) = data.([data.udcast]).(['t' data.sensor(a)])(:,a);
+      data.c(:,a) = data.([data.udcast]).(['c' data.sensor(a)])(:,a);
+      
+      data.oxygen(:,a) = data.([data.udcast]).(['oxygen'])(:,a);
+      data.trans(:,a) = data.([data.udcast]).(['trans'])(:,a);
+    end
+end
+
+data.date = data.([data.udcast]).date;
+
+filename = ([station_list{this_stat} '_all.mat'])
+save(['../../ctd/processed/' filename], 'data')

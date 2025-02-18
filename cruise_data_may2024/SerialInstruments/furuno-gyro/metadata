@@ -1,0 +1,36 @@
+20240430 214615:
+	    addtimestamp	true
+	      dataformat	nmea0183
+	     description	Furuno SC-30 satellite gyroCompass
+	       directory	furuno-gyro
+	    manufacturer	Furuno
+	        measures	heading
+	            mode	4800,n,8,1,a
+	           model	SC-30
+	            port	/dev/ttyRP4
+	    serialnumber	???
+	       timeoutms	3000
+20240430 224840:
+	    addtimestamp	true
+	      dataformat	nmea0183
+	     description	Furuno SC-30 satellite gyroCompass
+	       directory	furuno-gyro
+	    manufacturer	Furuno
+	        measures	heading
+	            mode	4800,n,8,1,a
+	           model	SC-30
+	            port	/dev/ttyRP4
+	    serialnumber	???
+	       timeoutms	3000
+20240430 225245:
+	    addtimestamp	true
+	      dataformat	nmea0183
+	     description	Furuno SC-30 satellite gyroCompass
+	       directory	furuno-gyro
+	    manufacturer	Furuno
+	        measures	heading
+	            mode	4800,n,8,1,a
+	           model	SC-30
+	            port	/dev/ttyRP4
+	    serialnumber	???
+	       timeoutms	3000

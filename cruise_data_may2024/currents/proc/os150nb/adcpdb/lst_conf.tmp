@@ -1,0 +1,7 @@
+
+        dbname:     a_sp
+        output:     a_sp.cnh
+        time_ranges:
+             all
+
+     

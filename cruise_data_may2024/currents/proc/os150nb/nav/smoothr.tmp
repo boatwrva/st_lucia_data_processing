@@ -1,0 +1,16 @@
+
+           reference_file:       a_sp.nav
+           refabs_output:        a_sp.ref
+           output:               a_sp.sm
+           filter_hwidth=        0.0208
+           min_filter_fraction=  0.5
+           max_gap_ratio=        0.05
+           max_gap_distance=     50
+           max_gap_time=         30            /* 0.5  minutes */
+           ensemble_time=        180
+           max_speed=            5.0
+           min_speed=            1.0
+           iterations=           5
+           fix_to_dr_limit=      0.00050
+
+     

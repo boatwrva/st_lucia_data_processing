@@ -1,0 +1,385 @@
+SIO/STS MET Acquisition Log File: /opt/met/data/SP2403/240501.LOG
+
+Date: 01 May 2024 23:45:07
+Ship: R/V Sproul MET System
+
+MET Acquisition Software Version: 2.18d
+
+Currently Selected ACQ File: /opt/met/data/SP24A.acq
+Program Runtime: 198216.9
+SPS: 9.5
+
+Active Modules: 21
+TMP73 BPR67 HRH32 PRC04 LWR21 SWR21
+PAR08 WND95 TSG67 FLU63 OXY63 XMS76
+SST33 PDR02 SND01 NME05 NME01 NME02
+GYR01 WCH02 IST01
+
+Inoperative Modules:  3
+PDR02 SND01 IST01 
+
+Data Files Written:  4
+240501.MET	Corrected Data
+240501.UCR	Raw Data
+240501.COR	Corrected Data - Translator Format
+240501.UNC	Raw Data - Translator Format
+
+Parameters Written To MET/COR Data Files:  50
+AT   BP   BS   RH   RT   DP  
+PR   LD   LB   LT   LW   SW  
+PA   WS   WD   TW   TI   TT  
+TC   SA   SD   SV   TG   FL  
+OT   OX   OS   TR   BA   ST  
+BT   BT-2 LF   HF   LA   LO  
+GT   CR   SP   ZD   GA   GS  
+GY   ZO   ZS   ZT   ZI   IP  
+IV   IA   
+
+Parameters Written To UCR Data File:  39
+AT   BP   RH   RT   PR   LD  
+LB   LT   SW   PA   WS   WD  
+TT   TC   FL   OT   OX   TR  
+ST   BT   BT-2 LF   HF   LA  
+LO   GT   CR   SP   ZD   GA  
+GS   GY   ZO   ZS   ZT   ZI  
+IP   IV   IA   
+
+User Defined Outputs:  6
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+Module	Number	Parameters:
+TMP73	1	AT   
+BPR67	1	BP   BS   
+HRH32	1	RH   RT   DP   
+PRC04	1	PR   
+LWR21	1	LD   LB   LT   LW   
+SWR21	1	SW   
+PAR08	1	PA   
+WND95	1	WS   WD   TW   TI   
+TSG67	1	TT   TC   SA   SD   SV   TG   
+FLU63	1	FL   
+OXY63	1	OT   OX   OS   
+XMS76	1	TR   BA   
+SST33	1	ST   
+PDR02	1	BT   
+SND01	1	BT-2 LF   HF   
+NME05	1	LA   LO   GT   CR   SP   ZD   GA   GS   
+GYR01	1	GY   
+WCH02	1	ZO   ZS   ZT   ZI   
+IST01	1	IP   IV   IA   
+
+
+Active Module/Parameter Detailed Descriptions:
+
+Module: TMP73	Module Number: 1
+Sensor: Air Temperature
+Model: 41342VC	Serial: 35606	MFG: RM Young
+Location: Top Bridge 33'above MWL	Owner: SIO/STS
+CAL LAB: STS	CAL DATE: 27-Sept-2023
+Install Date: 18-APR-2024
+Comments:        
+Write To File: TRUE
+Number Parameters Returned From Sensor:1   Additional Parameters Computed:0   Total:1
+Parameter Tags: AT
+AT Number:1  Status 2-OK  Secs Averaged:60.0  Range:-4.00E+1 TO 5.00E+1 Units: Deg C
+
+Module: BPR67	Module Number: 1
+Sensor: Barometric Pressure
+Model: 61402V	Serial: BPA17357	MFG: RM Young
+Location: Top Bridge 33'above MWL	Owner: SIO/STS
+CAL LAB: STS	CAL DATE: 02-Feb-2024
+Install Date: 18-Apr-2024
+Comments:        
+Write To File: TRUE
+Number Parameters Returned From Sensor:1   Additional Parameters Computed:1   Total:2
+Parameter Tags: BP BS
+BP Number:1  Status 2-OK  Secs Averaged:60.0  Range:8.00E+2 TO 1.10E+3 Units: millibars
+BS Number:1  Status 2-OK  Secs Averaged:60.0  Range:-1.00E+10 TO 1.00E+10 Units: 
+
+Module: HRH32	Module Number: 1
+Sensor: Relative Humidity
+Model: HTP201	Serial: 2305210000033B	MFG: ELEKTRONIK
+Location: Top Bridge 33' Above MWL	Owner: SIO/STS
+CAL LAB: SIO/STS	CAL DATE: 13-Feb-2024
+Install Date: 18-Apr-2024
+Comments:        
+Write To File: TRUE
+Number Parameters Returned From Sensor:2   Additional Parameters Computed:1   Total:3
+Parameter Tags: RH RT DP
+RH Number:1  Status 2-OK  Secs Averaged:60.0  Range:0.00E+0 TO 1.00E+2 Units: PerCent
+RT Number:1  Status 2-OK  Secs Averaged:60.0  Range:-4.00E+1 TO 6.00E+1 Units: Deg C
+DP Number:1  Status 2-OK  Secs Averaged:0.0  Range:-4.00E+1 TO 6.00E+1 Units: Deg C
+
+Module: PRC04	Module Number: 1
+Sensor: Precipitation
+Model: 50202	Serial: 1300	MFG: RM Young
+Location: Top Bridge 33'above MWL	Owner: SIO/STS
+CAL LAB: STS	CAL DATE: 22-FEB-2024
+Install Date: 18-Apr-2024
+Comments:        
+Write To File: TRUE
+Number Parameters Returned From Sensor:1   Additional Parameters Computed:0   Total:1
+Parameter Tags: PR
+PR Number:1  Status 2-OK  Secs Averaged:0.0  Range:-2.00E+1 TO 6.00E+1 Units: millimeters
+
+Module: LWR21	Module Number: 1
+Sensor: Long Wave Radiation
+Model: PIR	Serial: 26408F3	MFG: Eppley Labs
+Location: Top Bridge 31' above MWL	Owner: SIO/STS
+CAL LAB: Eppley	CAL DATE: 24-April-2023
+Install Date: 02 May 2023
+Comments:        
+Write To File: TRUE
+Number Parameters Returned From Sensor:3   Additional Parameters Computed:1   Total:4
+Parameter Tags: LD LB LT LW
+LD Number:1  Status 1-OK  Secs Averaged:0.0  Range:-1.00E+10 TO 1.00E+5 Units: Deg K
+LB Number:1  Status 1-OK  Secs Averaged:0.0  Range:-1.00E+10 TO 1.00E+5 Units: Deg K
+LT Number:1  Status 1-OK  Secs Averaged:0.0  Range:-1.00E+5 TO 1.00E+5 Units: uv
+LW Number:1  Status 1-OK  Secs Averaged:0.0  Range:-1.00E+5 TO 1.00E+5 Units: W/M2
+
+Module: SWR21	Module Number: 1
+Sensor: Short Wave Radiation
+Model: SPP	Serial: 38228F3	MFG: Eppley Labs
+Location: Top Bridge 31' above MWL	Owner: SIO/STS
+CAL LAB: Eppley	CAL DATE: 24-April-2023
+Install Date: 02 May 2023
+Comments:        
+Write To File: TRUE
+Number Parameters Returned From Sensor:1   Additional Parameters Computed:0   Total:1
+Parameter Tags: SW
+SW Number:1  Status 2-OK  Secs Averaged:0.0  Range:-5.00E+1 TO 5.00E+4 Units: W/M2
+
+Module: PAR08	Module Number: 1
+Sensor: Surface PAR
+Model: QSR-2200	Serial: 20270	MFG: Biospherical Instruments
+Location: Top Bridge 31' above MWL	Owner: SIO/STS
+CAL LAB: Biospherical Instruments	CAL DATE: 07-Mar-2024
+Install Date: 18-Apr-2024
+Comments:        
+Write To File: TRUE
+Number Parameters Returned From Sensor:1   Additional Parameters Computed:0   Total:1
+Parameter Tags: PA
+PA Number:1  Status 2-OK  Secs Averaged:30.0  Range:-1.00E+10 TO 1.00E+10 Units: uE/Sec/Meter^2
+
+Module: WND95	Module Number: 1
+Sensor: WIND
+Model: 86106	Serial: 1296	MFG: RM Young
+Location: Top Bridge(STBD) 36'above MWL	Owner: SIO/STS
+CAL LAB: RM Young	CAL DATE: 18-Feb-2021
+Install Date: 18-Apr-2024
+Comments:        
+Write To File: TRUE
+Number Parameters Returned From Sensor:2   Additional Parameters Computed:2   Total:4
+Parameter Tags: WS WD TW TI
+WS Number:1  Status 2-OK  Secs Averaged:60.0  Range:0.00E+0 TO 5.00E+2 Units: M/S
+WD Number:1  Status 2-OK  Secs Averaged:60.0  Range:0.00E+0 TO 3.60E+2 Units: DEG
+TW Number:1  Status 2-OK  Secs Averaged:0.0  Range:0.00E+0 TO 5.00E+2 Units: M/S
+TI Number:1  Status 2-OK  Secs Averaged:0.0  Range:0.00E+0 TO 3.60E+2 Units: DEG
+
+Module: TSG67	Module Number: 1
+Sensor: Thermosalinograph
+Model: SBE45	Serial: 0082	MFG: Seabird
+Location: Ocean Lab	Owner: SIO/STS
+CAL LAB: Seabird	CAL DATE: 10-Mar-2024
+Install Date: 22-Apr-2024
+Comments:        
+Write To File: TRUE
+Number Parameters Returned From Sensor:2   Additional Parameters Computed:4   Total:6
+Parameter Tags: TT TC SA SD SV TG
+TT Number:1  Status 2-OK  Secs Averaged:60.0  Range:-5.00E+0 TO 5.00E+1 Units: Deg C
+TC Number:1  Status 2-OK  Secs Averaged:60.0  Range:-5.00E+0 TO 1.00E+5 Units: mS/cm
+SA Number:1  Status 2-OK  Secs Averaged:0.0  Range:0.00E+0 TO 1.00E+2 Units: PSU
+SD Number:1  Status 2-OK  Secs Averaged:0.0  Range:-1.00E+1 TO 7.00E+3 Units: Kg/m^3
+SV Number:1  Status 2-OK  Secs Averaged:0.0  Range:1.00E+3 TO 2.00E+3 Units: M/S
+TG Number:1  Status 2-OK  Secs Averaged:0.0  Range:-1.00E+10 TO 1.00E+10 Units: 
+
+Module: FLU63	Module Number: 1
+Sensor:        
+Model: Wetstar	Serial: WS3S-963P	MFG: Wetlabs
+Location: Main/Dry Lab-UCSW line	Owner: SIO/STS
+CAL LAB: Wetlabs	CAL DATE: 11-Mar-2019
+Install Date: 18-Apr-2024
+Comments:        
+Write To File: TRUE
+Number Parameters Returned From Sensor:1   Additional Parameters Computed:0   Total:1
+Parameter Tags: FL
+FL Number:1  Status 2-OK  Secs Averaged:30.0  Range:-5.00E+2 TO 1.00E+5 Units: ug/l
+
+Module: OXY63	Module Number: 1
+Sensor: Oxygen
+Model: SBE-63	Serial: 1266	MFG: Seabird
+Location: FLO-Thru system Hydro Lab	Owner: SIO/STS
+CAL LAB: Seabird	CAL DATE: 19-Aug-2020
+Install Date: 18-Apr-2024
+Comments:        
+Write To File: TRUE
+Number Parameters Returned From Sensor:2   Additional Parameters Computed:1   Total:3
+Parameter Tags: OT OX OS
+OT Number:1  Status 2-OK  Secs Averaged:0.0  Range:-1.00E+10 TO 1.00E+10 Units: Deg C
+OX Number:1  Status 2-OK  Secs Averaged:0.0  Range:-1.00E+10 TO 1.00E+10 Units: m/l
+OS Number:1  Status 2-OK  Secs Averaged:0.0  Range:-1.00E+10 TO 1.00E+10 Units: ml/l
+
+Module: XMS76	Module Number: 1
+Sensor: Transmissometer
+Model: C-Star	Serial: 1793PR	MFG: Wetlabs
+Location: Main Lab Water Wall	Owner: SIO/STS
+CAL LAB: Wetlabs	CAL DATE: 25-Aug-2023
+Install Date: 01-Nov-2023
+Comments:        
+Write To File: TRUE
+Number Parameters Returned From Sensor:1   Additional Parameters Computed:1   Total:2
+Parameter Tags: TR BA
+TR Number:1  Status 2-OK  Secs Averaged:0.0  Range:-5.00E+1 TO 1.20E+2 Units: PerCent
+BA Number:1  Status 2-OK  Secs Averaged:0.0  Range:-1.00E+10 TO 1.00E+10 Units: 
+
+Module: SST33	Module Number: 1
+Sensor: Sea Surface Temperature
+Model: SEG14	Serial: 5152	MFG: STS/SEG
+Location: Hull-2nd platform(ADCP void)	Owner: SIO/STS
+CAL LAB: STS	CAL DATE: 21-Apr-2022
+Install Date: 03-May-2022
+Comments:        
+Write To File: TRUE
+Number Parameters Returned From Sensor:1   Additional Parameters Computed:0   Total:1
+Parameter Tags: ST
+ST Number:1  Status 2-OK  Secs Averaged:60.0  Range:-5.00E+0 TO 5.00E+1 Units: Deg C
+
+Module: PDR02	Module Number: 1
+Sensor: Depth
+Model: FCV-382	Serial: 8770-1345	MFG: Furuno
+Location: Bridge	Owner: Sproul
+CAL LAB: n/a	CAL DATE: n/a
+Install Date:        
+Comments:        
+Write To File: TRUE
+Number Parameters Returned From Sensor:1   Additional Parameters Computed:0   Total:1
+Parameter Tags: BT
+BT Number:1  Status 9-Invalid  Secs Averaged:0.0  Range:-1.00E+2 TO 5.00E+4 Units: DEG
+
+Module: SND01	Module Number: 1
+Sensor: Depth
+Model: 3260	Serial: K2K-10-0585	MFG: Knudsen
+Location: Lab Van	Owner: SIO/STS
+CAL LAB: n/a	CAL DATE: n/a
+Install Date:        
+Comments:        
+Write To File: TRUE
+Number Parameters Returned From Sensor:3   Additional Parameters Computed:0   Total:3
+Parameter Tags: BT LF HF
+BT Number:2  Status 9-Invalid  Secs Averaged:0.0  Range:-1.00E+8 TO 1.00E+8 Units: DEG
+LF Number:1  Status 9-Invalid  Secs Averaged:0.0  Range:-1.00E+10 TO 1.00E+10 Units: 
+HF Number:1  Status 9-Invalid  Secs Averaged:0.0  Range:-1.00E+10 TO 1.00E+10 Units: 
+
+Module: NME05	Module Number: 1
+Sensor: GPS
+Model: BX992	Serial: 6102C01131 # 10.110.148.63	MFG: Trimble
+Location: 01 Van Top	Owner: STS
+CAL LAB: n/a	CAL DATE: n/a
+Install Date: 2023-01
+Comments:        
+Write To File: TRUE
+Number Parameters Returned From Sensor:8   Additional Parameters Computed:0   Total:8
+Parameter Tags: LA LO GT CR SP ZD GA GS
+LA Number:1  Status 1-OK  Secs Averaged:0.0  Range:-9.00E+1 TO 9.00E+1 Units: Deg Decimal
+LO Number:1  Status 1-OK  Secs Averaged:0.0  Range:-1.80E+2 TO 1.80E+2 Units: Deg Decimal
+GT Number:1  Status 1-OK  Secs Averaged:0.0  Range:0.00E+0 TO 8.64E+4 Units: Seconds
+CR Number:1  Status 1-OK  Secs Averaged:0.0  Range:0.00E+0 TO 3.60E+2 Units: DEG
+SP Number:1  Status 1-OK  Secs Averaged:0.0  Range:-5.00E+0 TO 8.00E+1 Units: Knots
+ZD Number:1  Status 1-OK  Secs Averaged:0.0  Range:0.00E+0 TO 1.00E+10 Units: Seconds
+GA Number:1  Status 1-OK  Secs Averaged:0.0  Range:-2.00E+3 TO 2.00E+3 Units: Meters
+GS Number:1  Status 1-OK  Secs Averaged:0.0  Range:-1.00E+4 TO 5.00E+4 Units: DEG
+
+Module: NME01	Module Number: 2
+Sensor: GPS
+Model: GP170D	Serial: 6452-6154	MFG: Furuno
+Location: Bridge	Owner: Sproul
+CAL LAB: n/a	CAL DATE: n/a
+Install Date: 2017-07-18
+Comments:        
+Write To File: FALSE
+Number Parameters Returned From Sensor:8   Additional Parameters Computed:0   Total:8
+Parameter Tags: LA LO GT CR SP ZD GA GS
+LA Number:2  Status 1-OK  Secs Averaged:0.0  Range:-9.00E+1 TO 9.00E+1 Units: Deg Decimal
+LO Number:2  Status 1-OK  Secs Averaged:0.0  Range:-1.80E+2 TO 1.80E+2 Units: Deg Decimal
+GT Number:2  Status 1-OK  Secs Averaged:0.0  Range:0.00E+0 TO 8.64E+4 Units: Seconds
+CR Number:2  Status 1-OK  Secs Averaged:0.0  Range:0.00E+0 TO 3.60E+2 Units: DEG
+SP Number:2  Status 1-OK  Secs Averaged:0.0  Range:-5.00E+0 TO 8.00E+1 Units: Knots
+ZD Number:2  Status 1-OK  Secs Averaged:0.0  Range:0.00E+0 TO 1.00E+10 Units: Seconds
+GA Number:2  Status 1-OK  Secs Averaged:0.0  Range:-2.00E+3 TO 2.00E+3 Units: Meters
+GS Number:2  Status 1-OK  Secs Averaged:0.0  Range:-1.00E+4 TO 5.00E+4 Units: DEG
+
+Module: NME02	Module Number: 3
+Sensor: GPS
+Model: GP170D-2	Serial: 6445-3531	MFG: Furuno
+Location: Bridge	Owner: Sproul
+CAL LAB: n/a	CAL DATE: n/a
+Install Date: ???
+Comments:        
+Write To File: FALSE
+Number Parameters Returned From Sensor:8   Additional Parameters Computed:0   Total:8
+Parameter Tags: LA LO GT CR SP ZD GA GS
+LA Number:3  Status 1-OK  Secs Averaged:0.0  Range:-9.00E+1 TO 9.00E+1 Units: Deg Decimal
+LO Number:3  Status 1-OK  Secs Averaged:0.0  Range:-1.80E+2 TO 1.80E+2 Units: Deg Decimal
+GT Number:3  Status 1-OK  Secs Averaged:0.0  Range:0.00E+0 TO 8.64E+4 Units: Seconds
+CR Number:3  Status 1-OK  Secs Averaged:0.0  Range:0.00E+0 TO 3.60E+2 Units: DEG
+SP Number:3  Status 1-OK  Secs Averaged:0.0  Range:-5.00E+0 TO 8.00E+1 Units: Knots
+ZD Number:3  Status 1-OK  Secs Averaged:0.0  Range:0.00E+0 TO 1.00E+10 Units: Seconds
+GA Number:3  Status 1-OK  Secs Averaged:0.0  Range:-2.00E+3 TO 2.00E+3 Units: Meters
+GS Number:3  Status 1-OK  Secs Averaged:0.0  Range:-1.00E+4 TO 5.00E+4 Units: DEG
+
+Module: GYR01	Module Number: 1
+Sensor: Gyro
+Model: SC-30	Serial: ??	MFG: Furuno
+Location: SIO/STS	Owner: Sproul
+CAL LAB: n/a	CAL DATE: n/a
+Install Date:        
+Comments:        
+Write To File: TRUE
+Number Parameters Returned From Sensor:1   Additional Parameters Computed:0   Total:1
+Parameter Tags: GY
+GY Number:1  Status 1-OK  Secs Averaged:0.0  Range:0.00E+0 TO 3.60E+2 Units: Seconds
+
+Module: WCH02	Module Number: 1
+Sensor: Winch Readouts
+Model: LCI90	Serial: ??	MFG: ??
+Location: Main Lab	Owner: Sproul
+CAL LAB: n/a	CAL DATE: n/a
+Install Date:        
+Comments:        
+Write To File: TRUE
+Number Parameters Returned From Sensor:4   Additional Parameters Computed:0   Total:4
+Parameter Tags: ZO ZS ZT ZI
+ZO Number:1  Status 1-OK  Secs Averaged:0.0  Range:-1.00E+10 TO 1.00E+10 Units: DEG
+ZS Number:1  Status 1-OK  Secs Averaged:0.0  Range:-1.00E+10 TO 1.00E+10 Units: DEG
+ZT Number:1  Status 1-OK  Secs Averaged:0.0  Range:-1.00E+10 TO 1.00E+10 Units: Meters
+ZI Number:1  Status 1-OK  Secs Averaged:0.0  Range:-1.00E+10 TO 1.00E+10 Units: 
+
+Module: IST01	Module Number: 1
+Sensor: CTD Depth
+Model: SBE11	Serial: XXXX	MFG: Seabird
+Location: 01 Lab	Owner: SIO/STS
+CAL LAB: n/a	CAL DATE: n/a
+Install Date:        
+Comments:        
+Write To File: TRUE
+Number Parameters Returned From Sensor:3   Additional Parameters Computed:0   Total:3
+Parameter Tags: IP IV IA
+IP Number:1  Status 9-Invalid  Secs Averaged:10.0  Range:-1.00E+1 TO 1.50E+4 Units: 
+IV Number:1  Status 9-Invalid  Secs Averaged:10.0  Range:-2.00E+2 TO 2.00E+2 Units: 
+IA Number:1  Status 9-Invalid  Secs Averaged:10.0  Range:-1.00E+1 TO 5.00E+2 Units: 
+
+Data Status Flag Types
+0 - Data Valid - Calibration corrections not applied
+1 - Data Valid - Calibration corrections applied in Sensor module
+2 - Data Valid - Calibration corrections applied in Acquisition program
+3 - Data Valid - Both type 1 and type 2
+7 - Data Invalid - Out of range
+8 - Data Invalid - Data Emulated
+9 - Data Invalid - No Valid Response from Input
+

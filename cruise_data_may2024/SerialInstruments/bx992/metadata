@@ -1,0 +1,36 @@
+20240430 214615:
+	    addtimestamp	true
+	      dataformat	nmea0183
+	     description	Trimble bx992
+	       directory	bx992
+	    manufacturer	Trimble
+	        measures	"position" "course" "speed" "heading"
+	            mode	19200,n,8,1,a
+	           model	BX992
+	            port	/dev/ttyRP6
+	    serialnumber	6102C01131
+	       timeoutms	2000
+20240430 224840:
+	    addtimestamp	true
+	      dataformat	nmea0183
+	     description	Trimble bx992
+	       directory	bx992
+	    manufacturer	Trimble
+	        measures	"position" "course" "speed" "heading"
+	            mode	19200,n,8,1,a
+	           model	BX992
+	            port	/dev/ttyRP6
+	    serialnumber	6102C01131
+	       timeoutms	2000
+20240430 225245:
+	    addtimestamp	true
+	      dataformat	nmea0183
+	     description	Trimble bx992
+	       directory	bx992
+	    manufacturer	Trimble
+	        measures	"position" "course" "speed" "heading"
+	            mode	19200,n,8,1,a
+	           model	BX992
+	            port	/dev/ttyRP6
+	    serialnumber	6102C01131
+	       timeoutms	2000

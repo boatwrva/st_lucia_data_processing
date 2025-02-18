@@ -1,0 +1,7 @@
+
+           dbname:         ../adcpdb/a_sp
+           shipspeed_file:     refsm_tuv.asc
+           year_base=      2024
+           tolerance=      5
+
+     

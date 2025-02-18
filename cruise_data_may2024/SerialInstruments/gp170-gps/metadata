@@ -1,0 +1,36 @@
+20240430 214615:
+	    addtimestamp	true
+	      dataformat	nmea0183
+	     description	Furuno GP170 GPS receiver
+	       directory	gp170-gps
+	    manufacturer	Furuno
+	        measures	"position" "course" "speed" "altitude"
+	            mode	4800,n,8,1,a
+	           model	GP170
+	            port	/dev/ttyRP2
+	    serialnumber	6452-6154
+	       timeoutms	2000
+20240430 224840:
+	    addtimestamp	true
+	      dataformat	nmea0183
+	     description	Furuno GP170 GPS receiver
+	       directory	gp170-gps
+	    manufacturer	Furuno
+	        measures	"position" "course" "speed" "altitude"
+	            mode	4800,n,8,1,a
+	           model	GP170
+	            port	/dev/ttyRP2
+	    serialnumber	6452-6154
+	       timeoutms	2000
+20240430 225245:
+	    addtimestamp	true
+	      dataformat	nmea0183
+	     description	Furuno GP170 GPS receiver
+	       directory	gp170-gps
+	    manufacturer	Furuno
+	        measures	"position" "course" "speed" "altitude"
+	            mode	4800,n,8,1,a
+	           model	GP170
+	            port	/dev/ttyRP2
+	    serialnumber	6452-6154
+	       timeoutms	2000
