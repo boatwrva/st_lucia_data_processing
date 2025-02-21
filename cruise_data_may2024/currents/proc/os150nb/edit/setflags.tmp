@@ -1,8 +1,0 @@
-
-        dbname:     ../adcpdb/a_sp
-        pg_min:      50
-        set_range_bit
-        time_ranges:
-             all
-
-     

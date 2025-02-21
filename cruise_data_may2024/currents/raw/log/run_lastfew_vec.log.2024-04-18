@@ -1,5 +1,0 @@
-2024-04-18 21:40:00,469 INFO     run_lastfew_vec Starting run_lastfewvec.py
-2024-04-18 21:40:00,576 WARNING  plot_lastfew_vec get_profiles returned only 1 profile
-2024-04-18 21:40:00,576 INFO     run_lastfew_vec Ending run_lastfewvec.py
-2024-04-18 21:42:59,836 INFO     run_lastfew_vec Starting run_lastfewvec.py
-2024-04-18 21:43:00,169 INFO     run_lastfew_vec Ending run_lastfewvec.py
