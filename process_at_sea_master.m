@@ -1,40 +1,113 @@
 
-%  St Lucia LADCP processing
-%addpath '/Users/kerstin/Desktop/St_Lucia/2025/Processing_at_sea'
+%  St Lucia data processing
+addpath '/Users/kerstin/Desktop/St_Lucia/2025/Processing_at_sea'
 
-dir_name = '/Volumes/cruise/SR2503/';
-
-% for Mac, can use the direct path 
-
-dir_in = 'smb://sr-sci-filesvr.ucsd.edu/cruise/SR2503/';
-dir_out = 'smb://sr-sci-filesvr.ucsd.edu/scienceparty_share/SR2503/';
-
-% for MATLAB on Linux, you need to tunnel into the remote server 
-
-dir_in = '/run/user/1001/gvfs/smb-share:server=sr-sci-filesvr.ucsd.edu,share=cruise/SR2503/'; 
-dir_out = '/run/user/1001/gvfs/smb-share:server=sr-sci-filesvr.ucsd.edu,share=scienceparty_share/SR2503/'; 
+cruise_data_dir = '/Volumes/cruise/SR2503/';
 
 
-%% Met
-base = [dir_in 'metacq/data/'];
+%% Met - run to update met files on the science_share
+% could be modified to output csv too?
+% List of variables and units can be found in the science_share MetData
+% folder
+
+base = [cruise_data_dir 'metacq/data/'];
 cruise = 'SR2503';
-outpath = [dir_out, 'MetData/'];
+outpath = '/Volumes/scienceparty_share/SR2503_scienceparty_share/MetData/';
 %SR_get_metdata(base,cruise,outpath,rerunnit,times,DT);
 times = [datenum('2025,02,20')];
 
 SR_get_metdata(base, cruise, outpath, 1, times)
 
 
-%% ADCP
-ADCP_pathname = [dir_name 'adcp_uhdas/SR2503/proc/'];
+%% ADCP - data already processed
+ADCP_pathname = [cruise_data_dir 'adcp_uhdas/SR2503/proc/'];
 
-%ADCPs: 'os38nb' 'wh300' 'os150nb'
-ADCP = 'wh300';
+%ADCPs: 'os38nb' 'wh300' 'os150nb' 'wh300'
 
-ADCP_pathname = [ADCP_pathname ADCP '/contour'];
+
+year=2025;
+
+datadir=fullfile(ADCP_pathname); %for on board ship
+
+wh_adcps={'wh300';'os150bb';'os150nb';'os38bb';'os38nb'};
+
+ymaxs=[150 500 500 1500 1500];
+
+todo=[1 3 5]; %nb only
+
+
+for c=1:length(todo)%:length(wh_adcps)
+    wh_adcp=wh_adcps{todo(c)};
+    D = load_getmat(fullfile(datadir, wh_adcp, 'contour', 'allbins_'));
+
+    if ~isempty(fields(D))
+        adcp.u=D.u;%.*D.nanmask;
+        adcp.v=D.v;%.*D.nanmask;
+        adcp.amp=D.amp;%.*D.nanmask;
+
+        adcp.lon=D.lon;
+        adcp.lat=D.lat;
+        adcp.yday=D.dday;
+        adcp.dnum=yday2datenum(adcp.yday,year);
+        adcp.z=D.depth(:,1); %make sure # of bins and bin size does not change to do this!
+        adcp.depth=adcp.z;
+        adcp.uship=D.uship;
+        adcp.vship=D.vship;
+
+        adcp.wh_adcp=wh_adcp;
+        adcps{c}=adcp;
+    end
+
+end
+
+% could save this on the science_share but would need to figure out how to
+% concatenate etc
+
+
+%% CTD stations
+
+stn = 1;
+% use load_hex_st_Lucia
+
 
 %% LADCP
-% first set up the set_cast_params.m file 
+% 
+% This master script processes LADCP data using CTD and shipboard ADCP
+% It is currently only running one station at a time but could probably be adapted to loop
+% 
+% Your LADCP directory should be set up as follows:
+% - One folder called 'raw' with _RDI_xxxx.000 files
+% - one folder called "processed" for output
+% - one folder called "checkpoints"
+% - one folder called "SADCP" in which the shipboard ADCP stuff goes
+% 
+% You need scripts:
+% 1. load_hex_St_Lucia
+% 2. set_cast_params 
+% note that both these need to be modified
+% as well as all your regular ctd processing toolboxes and the LDEO IX toolbox
+% If you haven't already, (re)process the CTD stuff to make .cnv files
 
-% then run process_cast.m
-% process_cast(4,1,16)
+output_base_dir = '/Volumes/scienceparty_share/SR2503_scienceparty_share/LADCP/';
+
+% pick a station
+stn = 4; % for now this only runs one cast at a time.
+
+
+% Then get shipboard ADCP data and run mkSADCP
+
+SADCP_output_file = [output_base_dir 'SADCP/SADCP.mat'];
+ADCP_contour_dir = [adcp_path '/contour/'];
+
+%mkSADCP(ADCP_contour_dir, SADCP_output_file)
+
+
+%% Then set your cast parameters 
+% double check the script set_cast_parameters.mat
+% note that set_cast_params has to be it's own separate script or it won't
+% work
+
+%% Then run the LADCP processing:
+cd '/Users/kerstin/Desktop/MOTIVE_LADCP/' % to make sure we grab the right set_cast_params
+
+process_cast(stn,1,0) % station number, start on step 1 and do all steps (0 - default)
