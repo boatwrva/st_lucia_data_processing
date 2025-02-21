@@ -1,5 +1,5 @@
-function MET=SR_get_metdata(base,cruise,outpath,rerunnit,times,DT);
-% code to parse Revelle MET data into structure
+function MET=SR_get_metdata_linux(base,cruise,outpath,rerunnit,times,DT);
+% code to parse Sally Ride MET data into structure
 % HLS
 % base: path to the MET files
 % cruise: name, used to store the data in outpath
@@ -62,8 +62,6 @@ end
 MET.header = d.colheaders;
 %%
 str = sprintf('save %s/MET_%s.mat MET',outpath,file(1:end-4))
-out_fn = ' '
-save(out_fn,MET)
 eval(str)
 end
 end % loop over files, saving each day as a matlab structure

@@ -1,22 +1,24 @@
-function MET=SR_get_metdata(base,cruise,outpath,rerunnit,times,DT);
-% code to parse Revelle MET data into structure
-% HLS
-% base: path to the MET files
-% cruise: name, used to store the data in outpath
-% rerunnit
-% times: days to work on, in datenum format, e.g. times = datenum(2017,2,17:30)
-% DT: not presently used, meant to decimate the data as desired
-%
-%# 1    2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18   19   20  21
-%#Time AT BP BC BS PR RH RT DP LB LT LW SW PA WS WD TW TI WS-2 WD-2 TW-2 TI-2 TT TC SA SD SV TG FI PS TT-2 TC-2 SA-2 SD-2 SV-2 TG-2 OC OT OX OS FL FI-2 PS-2 VP VR VH VX VY GY MB BT LF HF  LA  LO GT CR SP  ZD GA GS SH SM SR ZO ZS ZT ZI ZO-2 ZS-2 ZT-2 ZI-2 PZ PZ-2 IP IV IA MG MD MS MG-2 MD-2 MS-2 GC
-%!open ../DATA/SCS2013/RR1304/MetAcq_Appendix_A.pdf
-%%
-if rerunnit
-%%
-%keyboard 
-%%
-%files = dir([base,'*.MET'])
-%%
+
+% base,cruise,outpath,rerunnit,times,DT);
+
+times = datenum(2025,02,20);
+
+dir_in = 'smb://sr-sci-filesvr.ucsd.edu/cruise/SR2503/'; % for Mac
+dir_in = '/run/user/1001/gvfs/smb-share:server=sr-sci-filesvr.ucsd.edu,share=cruise/SR2503/'; % for Linux
+
+
+% dir_out = '/run/user/1001/gvfs/smb-share:server=sr-sci-filesvr.ucsd.edu,share=scienceparty_share/SR2503/'; 
+% dir_out = 'smb://sr-sci-filesvr.ucsd.edu/scienceparty_share/SR2503/'; 
+
+dir_out = '~/mnt/scienceparty_share/SR2503_scienceparty_share/'; % after you've mounted via CIFS 
+
+base = [dir_in 'metacq/data/'];
+cruise = 'SR2503';
+outpath = [dir_out, 'MetData/Linux_tests'];
+%SR_get_metdata(base,cruise,outpath,rerunnit,times,DT);
+times = [datenum('2025,02,20')];
+
+
 clear files
 for tdx = 1:length(times)
     fname = sprintf('%s.MET', datestr(times(tdx),'YYmmdd'));
@@ -62,10 +64,8 @@ end
 MET.header = d.colheaders;
 %%
 str = sprintf('save %s/MET_%s.mat MET',outpath,file(1:end-4))
-out_fn = ' '
-save(out_fn,MET)
 eval(str)
-end
+end 
 end % loop over files, saving each day as a matlab structure
 %%
 % now read them all in and concatenate
@@ -90,7 +90,8 @@ eval(sprintf('MET.%s = [MET.%s;a.MET.%s];',char(the_name),char(the_name),char(th
 end
 end
 MET.header=a.MET.header;
-%%
+
+
 
 %%
 % now interpolate to regular 15 second grid
