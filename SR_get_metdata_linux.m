@@ -111,8 +111,8 @@ MET.header=a.MET.header;
 % derive some stuff
 if 0 ; REVELLE_MET_derive;end % derived
 %%
-disp(['save ',outpath,cruise,'_MET.mat MET'])
-eval(['save ',outpath,cruise,'_MET.mat MET'])
+disp(['save ',outpath,'/',cruise,'_MET.mat MET'])
+eval(['save ',outpath,'/',cruise,'_MET.mat MET'])
 else % rerunnut
 eval(['load ',outpath,cruise,'_MET'])
 end % rerunnit

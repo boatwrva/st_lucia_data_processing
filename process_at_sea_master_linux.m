@@ -21,7 +21,7 @@ base = [dir_in 'metacq/data/'];
 cruise = 'SR2503';
 outpath = [dir_out, 'MetData/Linux_tests'];
 %SR_get_metdata(base,cruise,outpath,rerunnit,times,DT);
-times = [datenum('2025,02,20')];
+times = [datenum('2025,02,20'),datenum('2025,02,21')];
 
 SR_get_metdata_linux(base, cruise, outpath, 1, times)
 
