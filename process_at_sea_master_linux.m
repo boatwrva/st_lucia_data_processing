@@ -35,6 +35,8 @@ ADCP_pathname = [dir_name 'adcp_uhdas/SR2503/proc/'];
 ADCP = 'wh300';
 ADCP_pathname = [ADCP_pathname ADCP '/contour'];
 
+
+
 %% LADCP
 % first set up the set_cast_params.m file 
 
