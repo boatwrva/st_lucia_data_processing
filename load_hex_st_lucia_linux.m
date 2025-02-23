@@ -1,18 +1,25 @@
 % Code for processing CTD casts for St Lucia Escarpment on Sally Ride
 % Feb/March 2025.
 % 
-% Changes:
+% Change:
 % 1. the data dir in the hex_time_XXXX you're using.
 % 2. changed the number of variabes in: MakeCtdConfigFromXMLCON
+
 
 
 close all
 fclose('all');
 cruise= 'ST_LUCIA';
+stn = 3;
 
-datadir = '/Volumes/cruise/SR2503/ctd/data/';
-outdir = '/Volumes/scienceparty_share/SR2503_scienceparty_share/CTD/';
-outdir_cnv = '/Volumes/scienceparty_share/SR2503_scienceparty_share/LADCP/ctd_cnv/';
+% change path to be in dir with dirs and other functions
+addpath(genpath('/home/vboatwright/OneDrive/Documents/SIO/projects/st_lucia_data_processing/ctd_processing/')) 
+
+% mount to write via CIFS (can also use directly mounted for read) 
+datadir = '/home/vboatwright/mnt/cruise/SR2503/ctd/data/'; 
+outdir = '~/mnt/scienceparty_share/SR2503_scienceparty_share/CTD/'; 
+
+outdir_cnv = '~/mnt/scienceparty_share/SR2503_scienceparty_share/LADCP/ctd_cnv/'; 
 if stn < 2
     icast=stn;
 else 

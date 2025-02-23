@@ -1,4 +1,4 @@
-function time = hex_time_arcticMix(castnumber,totalscans)
+function time = hex_time_arcticMix(datadir,castnumber,totalscans)
 % Using the cast's header file and number of scans create a time vector
 % giving the time in seconds since 1970/1/1 0000 based on the number of
 % scans averaged for each given data point with the CTD sampling at 24 Hz.
@@ -6,7 +6,6 @@ function time = hex_time_arcticMix(castnumber,totalscans)
 % 
 %
 % datadir='/Users/jen/projects/arctic/data/ctd/raw/';
-datadir='/Volumes/data_archive/MOTIVE/Cruises/skq202417s/04_ship_data/ctd/raw/SKQ202417S/';
 ctdlist = dirs(fullfile(datadir,'*.hdr'));
 hdrname = [datadir ctdlist(castnumber).name];
 fid=fopen(hdrname);
