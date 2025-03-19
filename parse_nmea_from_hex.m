@@ -9,7 +9,7 @@ function [latitude_dd, longitude_dd, utc_time] = parse_nmea_from_hex(file_path)
     end
 
     % Initialize output variables
-    latitude_dd = NaN;
+    latitude_dd = NaN; 
     longitude_dd = NaN;
     utc_time = '';
 

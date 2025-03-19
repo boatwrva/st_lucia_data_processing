@@ -1,5 +1,6 @@
 
 more off;
+
 dir_in = '/home/vboatwright/mnt/cruise/SR2503/';
 path = '/home/vboatwright/mnt/scienceparty_share/SR2503_scienceparty_share/';
 f.ladcpdo = sprintf('%sLADCP/raw/_RDI_%03d.000', path, stn);
@@ -13,7 +14,6 @@ f.ctd = sprintf('%sLADCP/ctd_cnv/SR2503_cast_%02d_nofilt.cnv', path, stn);
 p.cruise_id = 'SR2503';
 p.whoami = 'Bergentz & Boatwright';
 p.name = sprintf('%s cast #%d',p.cruise_id,p.ladcp_station);
-
 
 
 f.ctd_header_lines = 0;

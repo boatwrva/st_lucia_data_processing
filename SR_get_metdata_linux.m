@@ -1,4 +1,4 @@
-function MET=SR_get_metdata_linux(base,cruise,outpath,rerunnit,times,DT);
+function MET=SR_get_metdata_linux(base,cruise,outpath,rerunnit,times); % ,DT);
 % code to parse Sally Ride MET data into structure
 % HLS
 % base: path to the MET files

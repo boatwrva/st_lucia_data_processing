@@ -25,3 +25,4 @@ data.modcount = hex2dec(h(:, 73:74));
 % the header NMEA time and sampling frequency
 % % seconds since 1970/1/1 0000
 % data.time =  hex2dec(h(:, [81:82 79:80 77:78 75:76]));
+

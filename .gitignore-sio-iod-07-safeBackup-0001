@@ -1,0 +1,7 @@
+# filetypes to ignore 
+*.raw
+*.log 
+*.pdf 
+
+# folders to ignore 
+st_lucia_data_processing/cruise_data_may2024/SerialInstruments/

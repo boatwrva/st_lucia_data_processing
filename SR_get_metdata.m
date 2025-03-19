@@ -62,8 +62,6 @@ end
 MET.header = d.colheaders;
 %%
 str = sprintf('save %s/MET_%s.mat MET',outpath,file(1:end-4))
-out_fn = ' '
-save(out_fn,MET)
 eval(str)
 end
 end % loop over files, saving each day as a matlab structure

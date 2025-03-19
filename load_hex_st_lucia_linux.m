@@ -4,39 +4,72 @@
 % Change:
 % 1. the data dir in the hex_time_XXXX you're using.
 % 2. changed the number of variabes in: MakeCtdConfigFromXMLCON
-
-
+% 3. changed to find file by filename 
 
 close all
 fclose('all');
-cruise= 'ST_LUCIA';
-stn = 3;
+% cruise= 'ST_LUCIA';
+cruise='SR2503';
+
+% input number of stations - still problem with Station 12 
+stn = 13;
+start = 13; % add which station you want to start processing from
+
+% % for PO station: 
+% station = 2; 
+% start = 2; stn = 20; % process all files from station 2 (station 1, total of 18, done)
+
+for icast = start:stn 
+
 
 % change path to be in dir with dirs and other functions
 addpath(genpath('/home/vboatwright/OneDrive/Documents/SIO/projects/st_lucia_data_processing/ctd_processing/')) 
 
 % mount to write via CIFS (can also use directly mounted for read) 
 datadir = '/home/vboatwright/mnt/cruise/SR2503/ctd/data/'; 
+datadir = '/media/vboatwright/KBZ/SR2503_cruise/ctd/data/';
 outdir = '~/mnt/scienceparty_share/SR2503_scienceparty_share/CTD/'; 
+outdir = '/media/vboatwright/KBZ/SR2503_scienceparty_share/CTD/';
 
 outdir_cnv = '~/mnt/scienceparty_share/SR2503_scienceparty_share/LADCP/ctd_cnv/'; 
-if stn < 2
-    icast=stn;
+outdir_cnv = '/media/vboatwright/KBZ/SR2503_scienceparty_share/LADCP/ctd_cnv/';
+
+ 
+% for individual station casts 
+if icast == 2
+    % incorrect cast at cast_02 --> correct cast is cast_02a
+    outname = sprintf('%s_cast_%02da',cruise,icast);
 else 
-    icast=stn+1;
+    outname = sprintf('%s_cast_%02d',cruise,icast);
 end
 
-ctdlist = dirs(fullfile(datadir,'*.hex'));
-outname = ctdlist(icast).name;
-ctdname = [datadir outname];
-matname = [outdir outname(1:end-4) '.mat'];
-if icast == 3 
-    xmlname = [datadir outname(1:end-12) 'cast_' outname(end-6:end-3) 'XMLCON'];
-else 
-    xmlname = [datadir outname(1:end-11) 'cast' outname(end-6:end-3) 'XMLCON'];
-end
+% % for PO station casts 
+% outname = sprintf('%s_POstation_%d_cast_%02d',cruise,station,icast);
 
-disp(['CTD file: ' ctdname])
+% this processes based on value in datalist - not optimal for us due to discrepancies during casts 
+% ctdlist = dirs(fullfile(datadir,'*.hex'));
+% ctdlist(~cellfun('isempty',regexp(ctdlist,pattern,'once')));
+%data.test4=hex2dec(h(:,75:82))
+% outname = ctdlist(icast).name;
+
+ctdname = [datadir outname '.hex'];
+matname = [outdir outname '.mat'];
+
+% for individual station casts: 
+if icast == 2
+    xmlstring = sprintf('%s_CAST_%02da',cruise,icast);
+else 
+    xmlstring = sprintf('%s_CAST_%02d',cruise,icast);
+end
+xmlname = [datadir xmlstring '.XMLCON'];
+
+% % for PO station casts: 
+% xmlstring = sprintf('%s_POSTATION_%d_CAST_%02d',cruise,station,icast);
+% xmlname = [datadir xmlstring '.XMLCON'];
+% xmlname = [datadir 'SR2503.XMLCON']; 
+% disp(['CTD file: ' ctdname])
+
+%%
 
 %
 % Load calibration coefficients
@@ -53,7 +86,7 @@ d = hex_read(ctdname);
 disp('parsing')
 data1 = hex_parse_arcticMix(d);
 % Create time vector for ArcticMix
-data1.time = hex_time_arcticMix(datadir,icast,length(data1.t1));
+data1.time = hex_time_arcticMix(datadir,outname,length(data1.t1));
 
 % check for modcount errors
 dmc = diff(data1.modcount);
@@ -106,7 +139,7 @@ end
 disp('cleaning:')
 % Remove pressure spikes, and spikes in temperature. Eliminate top 5 m
 % of data. Discard outliers beyond the range reasonable in the ocean.
-data3 = ctd_cleanup(data2);
+data3 = ctd_cleanup(data2); 
 
 disp('correcting:')
 % ***include ch4
@@ -195,9 +228,12 @@ lon=data3b.lon;
 
 dataout=[sec p t s lat lon];
 ig=find(~isnan(sec)); dataout=dataout(ig,:);
-save([outdir_cnv outname(1:end-4) '_nofilt.cnv'],'dataout','-ascii','-tabs')
+save([outdir_cnv outname '_nofilt.cnv'],'dataout','-ascii','-tabs')
 
-disp(['Done processing cast ' num2str(stn)])
+
+disp(['Done processing cast ' num2str(icast)])
+
+end
 
 %%
 
@@ -208,7 +244,7 @@ disp(['Done processing cast ' num2str(stn)])
 %         sigma_t=2e-4;
 %         sigma_rho=5e-4;
 %         
-%         disp('Calculating epsilon:')
+%       55  disp('Calculating epsilon:')
 %         [Epsout,Lmin,Lot,runlmax,Lttot]=compute_overturns2(datad6.p,datad6.t1,datad6.s1,nanmean(datad6.lat),0,3,sigma_rho,0);
 %         %[epsilon]=ctd_overturns(datad6.p,datad6.t1,datad6.s1,33,5,5e-4);
 %         datad6.epsilon1=Epsout;
